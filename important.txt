@@ -11,15 +11,15 @@
 11 - 
 12 - Jawane Jaane Mann - Asha Bhosale
 13 - 
-14 - 
-15 - 
-16 - 
-17 - 
-18 - 
-19 - 
-20 - 
+14 - Hi chal turu turu - Jaywant Kulkarni
+15 - Katra Katra - Asha Bhosale
+16 - Jana Gana Mana (National Anthem) - Slowed Down
+17 - Jana Gana Mana (National Anthem) - Slowed Down
+18 - Ina Mina Dika - Kishore Kumar
+19 - Marathi Song - SHRUTI
+20 - Billie Jean - Michael Jackson
 21 - 
-22 - 
+22 - Number 54 - Manna Dey, Pramila Datar - Marathi Song
 23 - 
 24 - 
 25 - 
@@ -37,7 +37,7 @@
 37 - 
 38 - 
 39 - 
-40 - 
+40 - Ye Ladka Hay Allah - Asha Bhosale
 41 - 
 42 - 
 43 - 
@@ -87,7 +87,7 @@
 87 - 
 88 - 
 89 - 
-90 - 
+90 - Jana Gana Mana (National Anthem) - Slowed Down
 91 - 
 92 - 
 93 - 
