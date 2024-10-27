@@ -27,7 +27,7 @@ def aggregate_mfcc_selective(mfcc_data):
 # Load MFCC data from CSV files and aggregate them based on MFCC 2-5
 mfcc_all_songs = []
 file_names = []
-for i in range(1, 116):  # Assuming 115 songs are numbered as '01-MFCC.csv', '02-MFCC.csv', ..., '115-MFCC.csv'
+for i in range(1, 117):  # Assuming 115 songs are numbered as '01-MFCC.csv', '02-MFCC.csv', ..., '115-MFCC.csv'
     # Load the MFCC CSV file for each song
     file_name = f'data/{i:02d}-MFCC.csv'
     song_data = pd.read_csv(file_name, header=None)
@@ -83,3 +83,4 @@ output_df = pd.DataFrame({
     'Cluster': cluster_labels
 })
 output_df.to_csv('file_cluster_labels.csv', index=False)
+    

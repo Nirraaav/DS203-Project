@@ -24,7 +24,7 @@
 24 - 
 25 - 
 26 - 
-27 - 
+27 - Jana Gana Mana (National Anthem) - Slowed Down
 28 - 
 29 - 
 30 - 
@@ -58,7 +58,7 @@
 58 - 
 59 - 
 60 - 
-61 - 
+61 - Jana Gana Mana (National Anthem) - Slowed Down
 62 - 
 63 - 
 64 - 
@@ -76,15 +76,15 @@
 76 - 
 77 - 
 78 - 
-79 - 
-80 - 
-81 - 
-82 - 
+79 - Gumsum Kyon Hai Sanam - Asha Bhosale
+80 - Do Lafzon Ki Hai - Asha Bhosale
+81 - Jana Gana Mana (National Anthem) - Slowed Down
+82 - Raat Akeli Hai Bujh Gaye Die - Asha Bhosale
 83 - 
 84 - 
 85 - 
 86 - 
-87 - 
+87 - Jana Gana Mana (National Anthem) - Slowed Down
 88 - 
 89 - 
 90 - Jana Gana Mana (National Anthem) - Slowed Down
@@ -92,7 +92,7 @@
 92 - 
 93 - 
 94 - 
-95 - 
+95 - Jana Gana Mana (National Anthem) - Slowed Down
 96 - 
 97 - 
 98 - 
@@ -112,4 +112,4 @@
 112 - 
 113 - 
 114 - 
-115 - 
+115 - Jana Gana Mana (National Anthem) - Slowed Down
