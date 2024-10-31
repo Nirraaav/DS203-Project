@@ -6,22 +6,19 @@ from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_har
 from sklearn.decomposition import PCA
 import librosa
 import matplotlib.pyplot as plt
+from librosa.feature.rhythm import tempo as compute_tempo_function
 
-# Function to load and aggregate MFCC data based only on selective coefficients
 def aggregate_mfcc_selective(mfcc_data):
-    mfcc_selected = mfcc_data[13:, :]  # Slice rows for MFCC coefficients 2-5
+    mfcc_selected = mfcc_data[13:, :]  # Slice from the 13th MFCC coefficient onwards
     
-    # Aggregate the selected MFCCs
     mfcc_mean = np.mean(mfcc_selected, axis=1)
     mfcc_std = np.std(mfcc_selected, axis=1)
     mfcc_max = np.max(mfcc_selected, axis=1)
     mfcc_min = np.min(mfcc_selected, axis=1)
     
-    # Concatenate the aggregated features into one feature vector
     features = np.concatenate([mfcc_mean, mfcc_std, mfcc_max, mfcc_min])
     return features
 
-# Functions to compute additional features
 def compute_zcr(audio_segment):
     zcr = librosa.feature.zero_crossing_rate(audio_segment)
     return np.mean(zcr)
@@ -32,8 +29,8 @@ def compute_rmse(audio_segment):
 
 def compute_tempo(audio_segment, sr=44100):
     onset_env = librosa.onset.onset_strength(y=audio_segment, sr=sr)
-    tempo = librosa.beat.tempo(onset_envelope=onset_env, sr=sr)
-    return tempo[0]
+    detected_tempo = compute_tempo_function(onset_envelope=onset_env, sr=sr)
+    return detected_tempo[0]
 
 def compute_spectral_centroid(audio_segment, sr=44100):
     spectral_centroid = librosa.feature.spectral_centroid(y=audio_segment, sr=sr)
@@ -73,53 +70,87 @@ def compute_tonnetz(audio_segment, sr=44100):
     tonnetz = librosa.feature.tonnetz(y=librosa.effects.harmonic(audio_segment), sr=sr)
     return np.mean(tonnetz)
 
-# Load MFCC data and generate features for each song
+# Initialize lists to store features and file names
 mfcc_all_songs = []
 file_names = []
 generated_features = []
 
-for i in range(1, 117):  # Assuming 115 songs numbered '01-MFCC.csv', ..., '115-MFCC.csv'
-    file_name = f'data-V2/{i:02d}-MFCC.csv'
+for i in range(1, 117):
+    file_name = f'data-v2/{i:02d}-MFCC.csv'
     mfcc_data = pd.read_csv(file_name, header=None).values
-    audio_file = f'reconstructed-data/{i:02d}.wav'  # Corresponding audio file
+    # audio_file = f'reconstructed-data-v2/{i:02d}.wav' 
     
-    # Load audio file to get the time-sensitive features
-    audio_segment, sr = librosa.load(audio_file, sr=44100)
-    
-    # Generate each feature
+    # audio_segment, sr = librosa.load(audio_file, sr=44100)
+
+    # Compute aggregated MFCC features
     aggregated_features = aggregate_mfcc_selective(mfcc_data)
-    zcr = compute_zcr(audio_segment)
-    rmse = compute_rmse(audio_segment)
-    tempo = compute_tempo(audio_segment, sr)
-    spectral_centroid = compute_spectral_centroid(audio_segment, sr)
-    spectral_bandwidth = compute_spectral_bandwidth(audio_segment, sr)
-    spectral_rolloff = compute_spectral_rolloff(audio_segment, sr)
-    chroma = compute_chroma(audio_segment, sr)
-    mfcc_mean = compute_mfcc_mean(mfcc_data)
-    mfcc_std = compute_mfcc_std(mfcc_data)
+
+    # Uncomment the following feature computations as needed
+    # zcr = compute_zcr(audio_segment)
+    # rmse = compute_rmse(audio_segment)
+    # tempo = compute_tempo(audio_segment, sr)
+    # spectral_centroid = compute_spectral_centroid(audio_segment, sr)
+    # spectral_bandwidth = compute_spectral_bandwidth(audio_segment, sr)
+    # spectral_rolloff = compute_spectral_rolloff(audio_segment, sr)
+    # chroma = compute_chroma(audio_segment, sr)
+    # mfcc_mean = compute_mfcc_mean(mfcc_data)
+    # mfcc_std = compute_mfcc_std(mfcc_data)
     mfcc_delta = compute_mfcc_delta(mfcc_data)
     mfcc_delta2 = compute_mfcc_delta2(mfcc_data)
-    contrast = compute_contrast(audio_segment, sr)
-    tonnetz = compute_tonnetz(audio_segment, sr)
-    
+    # contrast = compute_contrast(audio_segment, sr)
+    # tonnetz = compute_tonnetz(audio_segment, sr)
+
     # Compile all features into a single vector
     features = np.concatenate([
         aggregated_features,
-        [zcr, rmse, tempo, spectral_centroid, spectral_bandwidth, spectral_rolloff, chroma,
-         mfcc_mean.mean(), mfcc_std.mean(), mfcc_delta, mfcc_delta2, contrast, tonnetz]
+        [
+            # Uncomment the additional features you wish to include
+            # zcr,
+            # rmse,
+            # tempo,
+            # spectral_centroid,
+            # spectral_bandwidth,
+            # spectral_rolloff,
+            # chroma,
+            # mfcc_mean.mean(),
+            # mfcc_std.mean(),
+            mfcc_delta,
+            mfcc_delta2,
+            # contrast,
+            # tonnetz
+        ]
     ])
+
+    print(f'Processed {file_name}')
     
-    generated_features.append(features)
-    file_names.append(file_name)
+    generated_features.append(features)  # Append the features for this song
+    file_names.append(file_name)          # Store the file name
 
 # Convert the list of all songs' generated features into a DataFrame
 feature_columns = [
-    f'MFCC_{stat}_{i}' for stat in ['mean', 'std', 'max', 'min'] for i in range(13, 20)
+    f'MFCC_mean_{i}' for i in range(13, 20)
+] + [
+    f'MFCC_std_{i}' for i in range(13, 20)
+] + [
+    f'MFCC_max_{i}' for i in range(13, 20)
+] + [
+    f'MFCC_min_{i}' for i in range(13, 20)
+] + [
+    # 'ZCR',
+    # 'RMSE',
+    # 'Tempo',
+    # 'Spectral_Centroid',
+    # 'Spectral_Bandwidth',
+    # 'Spectral_RollOff',
+    # 'Chroma',
+    # 'MFCC_Mean',
+    # 'MFCC_Std',
+    'MFCC_Delta',
+    'MFCC_Delta2',
+    # 'Spectral_Contrast',
+    # 'Tonnetz'
 ]
-feature_columns += [
-    'ZCR', 'RMSE', 'Tempo', 'Spectral_Centroid', 'Spectral_Bandwidth', 'Spectral_RollOff', 'Chroma',
-    'MFCC_Mean', 'MFCC_Std', 'MFCC_Delta', 'MFCC_Delta2', 'Spectral_Contrast', 'Tonnetz'
-]
+
 features_df = pd.DataFrame(generated_features, columns=feature_columns)
 features_df.insert(0, 'File', file_names)
 
