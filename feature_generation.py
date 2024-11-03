@@ -9,8 +9,10 @@ import matplotlib.pyplot as plt
 from librosa.feature.rhythm import tempo as compute_tempo_function
 from scipy.stats import skew, kurtosis
 
+INDEX = 13
+
 def aggregate_mfcc_selective(mfcc_data):
-    mfcc_selected = mfcc_data[13:, :]  # Slice from the 13th MFCC coefficient onwards
+    mfcc_selected = mfcc_data[INDEX:, :] 
     
     mfcc_mean = np.mean(mfcc_selected, axis=1)
     mfcc_std = np.std(mfcc_selected, axis=1)
@@ -79,9 +81,6 @@ generated_features = []
 for i in range(1, 117):
     file_name = f'data-v2/{i:02d}-MFCC.csv'
     mfcc_data = pd.read_csv(file_name, header=None).values
-    # audio_file = f'reconstructed-data-v2/{i:02d}.wav' 
-    
-    # audio_segment, sr = librosa.load(audio_file, sr=44100)
 
     # Compute aggregated MFCC features
     aggregated_features = aggregate_mfcc_selective(mfcc_data)
@@ -161,7 +160,7 @@ features_df = pd.DataFrame(generated_features, columns=feature_columns)
 features_df.insert(0, 'File', file_names)
 
 # Save generated features to 'features_generated.csv'
-features_df.to_csv('features_generated.csv', index=False)
+features_df.to_csv(f'features_generated_{INDEX}.csv', index=False)
 
 # Standardize the features
 scaler = StandardScaler()
@@ -199,6 +198,7 @@ plt.title('K-Means Clustering on Generated Features (PCA-reduced 2D projection)'
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
 plt.colorbar(label='Cluster Label')
+plt.savefig('cluster_plot.png')
 plt.show()
 
 # Save file names and cluster labels to 'file_cluster_labels.csv'
@@ -206,4 +206,4 @@ output_df = pd.DataFrame({
     'File': file_names,
     'Cluster': cluster_labels
 })
-output_df.to_csv('file_cluster_labels.csv', index=False)
+output_df.to_csv(f'labels/file_cluster_labels_{INDEX}.csv', index=False)

@@ -4,7 +4,7 @@
 4 - Pyaar karne vaale - Asha Bhosale
 5 - Mana Janab Ne Pukaara Nahin - Kishore Kumar
 6 - Dil Cheez Kya Hai - Asha Bhosale
-7 - Marathi Song - SHRUTI
+7 - Marathi Song - SHRUTI HELP
 8 - Beat it - Michael Jackson
 9 - 
 10 - 
@@ -16,40 +16,40 @@
 16 - Jana Gana Mana (National Anthem) - Slowed Down
 17 - Jana Gana Mana (National Anthem) - Slowed Down
 18 - Ina Mina Dika - Kishore Kumar
-19 - Marathi Song - SHRUTI
+19 - Marathi Song - SHRUTI HELP
 20 - Billie Jean - Michael Jackson
 21 - 
 22 - Number 54 - Manna Dey, Pramila Datar - Marathi Song
-23 - 
-24 - 
-25 - 
+23 - Aaja mere pyaar ke sahare - Asha Bhosale
+24 - Marathi Song - SHRUTI HELP
+25 - Marathi Song - SHRUTI HELP
 26 - 
 27 - Jana Gana Mana (National Anthem) - Slowed Down
 28 - 
 29 - 
 30 - 
-31 - Jana Gana Mana (Not Sure)
-32 - 
-33 - 
-34 - 
+31 - Jana Gana Mana (National Anthem) - Instrumental & Slowed Down
+32 - Marathi Song - SHRUTI HELP
+33 - Sakhya re ghayal mi harini - Lata Mangeshkar
+34 - Will You Be There - Michael Jackson
 35 - Jana Gana Mana (National Anthem) - Slowed Down
 36 - Tu tu hai wahi dil ne jise apna kaha - Kishore Kumar, Asha Bhosale
-37 - 
-38 - 
-39 - 
+37 - Dishashi tu Navataruni Kashmiri - Mahendra Kapoor
+38 - Jaiye Aap Kahan Kayenge - Asha Bhosale
+39 - Hawas tu - Asha Bhosale - Marathi Song
 40 - Ye Ladka Hay Allah - Asha Bhosale
-41 - 
-42 - 
-43 - 
-44 - 
-45 - 
-46 - 
+41 - Gori Gori paan Phulasarkhi chaan - Asha Bhosale
+42 - Marathi Song - SHRUTI HELP
+43 - Marathi Song - SHRUTI HELP
+44 - Dangerous - Michael Jackson
+45 - Earth Song - Michael Jackson
+46 - Zaroorat hai Zaroorat hai - Kishore Kumar
 47 - 
-48 - 
-49 - 
+48 - Marathi Song - SHRUTI HELP
+49 - Marathi Song - SHRUTI HELP
 50 - 
-51 - 
-52 - 
+51 - Jeevan ke safar me raahi - Kishore Kumar
+52 - Marathi Song - SHRUTI HELP
 53 - 
 54 - 
 55 - 
@@ -67,49 +67,50 @@
 67 - 
 68 - 
 69 - 
-70 - 
-71 - 
-72 - 
-73 - 
-74 - 
-75 - 
-76 - 
-77 - 
-78 - 
+70 - Marathi Song - SHRUTI HELP
+71 - Nigahein Milane Ko Jee Chahta Hai - Asha Bhosle
+72 - Dhund Madhumati - Lata Mangeshkar
+73 - Kuthe Kuthe jaycha honeymoonla - Asha Bhosale
+74 - Michael Jackson - SAHANA HELP
+75 - Mere desh ka salam salam salam (not real song idk)
+76 - Aai mala nesav shalu nava - Sulochana Chavan
+77 - Ye re ghana - Asha Bhosale
+78 - Smooth Criminal - Michael Jackson
 79 - Gumsum Kyon Hai Sanam - Asha Bhosale
 80 - Do Lafzon Ki Hai - Asha Bhosale
 81 - Jana Gana Mana (National Anthem) - Slowed Down
 82 - Raat Akeli Hai Bujh Gaye Die - Asha Bhosale
-83 - 
-84 - 
-85 - 
+83 - Ek Ladki Bheegi Bhaagi Si - Kishore Kumar
+84 - Ajnabi Tum Jane Pehechane Se Lagte Ho - Kishore Kumar
+85 - Jivanath Hi Ghadi - Lata Mangeshkar
 86 - 
 87 - Jana Gana Mana (National Anthem) - Slowed Down
 88 - 
-89 - 
+89 -  Tujha Usala Lagal Kolha - Sulochana Chavan
 90 - Jana Gana Mana (National Anthem) - Slowed Down
-91 - 
-92 - 
-93 - 
-94 - 
+91 - Nimbonichya Zadamage - Suman Kalyanpur
+92 - Pratham Tuzh Pahata - Pt. Ramdas Kamat 
+93 - Mere Mehboob Qayamat Hogi - Kishore Kumar
+94 - Disla Ga Bai Disla - Usha Mangeshkar 
 95 - Jana Gana Mana (National Anthem) - Slowed Down
-96 - 
-97 - 
-98 - 
-99 - 
-100 - 
-101 - 
-102 - 
+96 - Meri Neendon Mein Tum - Shamshad Begum and Kishore Kumar 
+97 - Yeh Dard Bhara Afsana - Kishore Kumar 
+98 - Piya Tu Ab To Aaja- Asha Bhosle 
+99 - Nach Re Mora - Asha Bhosle
+100 - Dukhi Man Mere - Kishore Kumar
+101 - Kasa Kay Patil Bara Hay Ka? - Sulochana Chavan
+102 - Tora Mann Darpan Kehlaye - Asha Bhosle
 103 - 
-104 - 
-105 - 
-106 - 
+104 - Shukratara Mandavara - Arun Date, Sudha Malhotra
+105 - Jahan Mein Aisa Koun Hai - Lata Mangeshkar
+106 - Justuju Jiski Thi - Asha Bhosle
 107 - 
 108 - 
-109 - 
-110 - 
-111 - 
-112 - 
-113 - 
-114 - 
-115 - Jana Gana Mana (National Anthem) - Slowed Down
+109 - Kunya Gavacha Aala Pakharu - Usha Mangeshkar 
+110 - Piya Tu Ab To Aaja - Asha Bhosle
+111 -  Hum Hain Rahi Pyar Ke - Kishore Kumar
+112 - Chafa Bolena - Lata Mangeshkar
+113 -  
+114 -  You Are Not Alone - Michael Jackson
+115 -  Khali Haath Sham Aayi Hai - Asha Bhosle
+116 - Jana Gana Mana (National Anthem) - Slowed Down
