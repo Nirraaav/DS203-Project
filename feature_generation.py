@@ -100,7 +100,7 @@ for i in range(1, 117):
     # mfcc_delta2 = compute_mfcc_delta2(mfcc_data)
     skewness = skew(mfcc_data, axis=1)
     kurt = kurtosis(mfcc_data, axis=1)
-    range = np.ptp(mfcc_data, axis=1)
+    range_max_min = np.ptp(mfcc_data, axis=1)
     # contrast = compute_contrast(audio_segment, sr)
     # tonnetz = compute_tonnetz(audio_segment, sr)
 
@@ -136,9 +136,9 @@ for i in range(1, 117):
         # mfcc_delta2.reshape(-1),
         # contrast,
         # tonnetz,
-        skewness.flatten(),
-        kurt.flatten(),
-        range.flatten(),
+        # skewness.flatten(),
+        # kurt.flatten(),
+        range_max_min.flatten(),
         delta_mean.flatten(),
         delta_std.flatten(),
         delta_max.flatten(),
@@ -152,47 +152,10 @@ for i in range(1, 117):
     generated_features.append(features)  # Append the features for this song
     file_names.append(file_name)          # Store the file name
 
-# Convert the list of all songs' generated features into a DataFrame
-# feature_columns = [
-#     f'MFCC_mean_{i}' for i in [13, 14, 15, 16, 17, 18, 19]
-# ] + [
-#     f'MFCC_std_{i}' for i in [13, 14, 15, 16, 17, 18, 19]
-# ] + [
-#     f'MFCC_max_{i}' for i in [13, 14, 15, 16, 17, 18, 19]
-# ] + [
-#     f'MFCC_min_{i}' for i in [13, 14, 15, 16, 17, 18, 19]
-# ] + [
-#     # 'ZCR',
-#     # 'RMSE',
-#     # 'Tempo',
-#     # 'Spectral_Centroid',
-#     # 'Spectral_Bandwidth',
-#     # 'Spectral_RollOff',
-#     # 'Chroma',
-#     # 'MFCC_Mean',
-#     # 'MFCC_Std',
-#     # 'MFCC_Delta',
-#     # 'MFCC_Delta2',
-#     # 'Spectral_Contrast',
-#     # 'Tonnetz',
-#     'Skewness',
-#     'Kurtosis',
-#     'Range',
-#     'Delta_Mean',
-#     'Delta_Std',
-#     'Delta_Max',
-#     'Delta_Min',
-#     # 'MFCC_Entropy',
-#     'PCA_MFCC_1',
-#     'PCA_MFCC_2',
-#     'PCA_MFCC_3',
-#     'PCA_MFCC_4',
-#     'PCA_MFCC_5',
-# ]
-
 generated_features = np.vstack(generated_features)
-num_features = generated_features.shape[1]  # Number of features (columns)
-feature_columns = [f'feature_{i}' for i in range(num_features)]
+# print(generated_features.shape)  # Should print (number_of_songs, number_of_features)
+total_features = generated_features.shape[1]
+feature_columns = [f'feature_{i}' for i in range(total_features)]
 
 features_df = pd.DataFrame(generated_features, columns=feature_columns)
 features_df.insert(0, 'File', file_names)
