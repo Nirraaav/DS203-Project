@@ -7,6 +7,7 @@ from sklearn.decomposition import PCA
 import librosa
 import matplotlib.pyplot as plt
 from librosa.feature.rhythm import tempo as compute_tempo_function
+from scipy.stats import skew, kurtosis
 
 def aggregate_mfcc_selective(mfcc_data):
     mfcc_selected = mfcc_data[13:, :]  # Slice from the 13th MFCC coefficient onwards
@@ -95,61 +96,103 @@ for i in range(1, 117):
     # chroma = compute_chroma(audio_segment, sr)
     # mfcc_mean = compute_mfcc_mean(mfcc_data)
     # mfcc_std = compute_mfcc_std(mfcc_data)
-    mfcc_delta = compute_mfcc_delta(mfcc_data)
-    mfcc_delta2 = compute_mfcc_delta2(mfcc_data)
+    # mfcc_delta = compute_mfcc_delta(mfcc_data)
+    # mfcc_delta2 = compute_mfcc_delta2(mfcc_data)
+    skewness = skew(mfcc_data, axis=1)
+    kurt = kurtosis(mfcc_data, axis=1)
+    range = np.ptp(mfcc_data, axis=1)
     # contrast = compute_contrast(audio_segment, sr)
     # tonnetz = compute_tonnetz(audio_segment, sr)
 
+    delta_mfcc = np.diff(mfcc_data, axis=1)
+    delta_delta_mfcc = np.diff(delta_mfcc, axis=1)
+
+    delta_mean = np.mean(delta_mfcc, axis=1)
+    delta_std = np.std(delta_mfcc, axis=1)
+    delta_max = np.max(delta_mfcc, axis=1)
+    delta_min = np.min(delta_mfcc, axis=1)
+    
+    # mfcc_entropy = -np.sum((mfcc_data + 1e-6) * np.log(mfcc_data + 1e-6), axis=1) / mfcc_data.shape[1]
+
+    PCA_mfcc = PCA(n_components=5)
+    PCA_mfcc.fit(mfcc_data.T)
+    PCA_mfcc_features = PCA_mfcc.components_
+    PCA_mfcc_features = PCA_mfcc_features.flatten()
+
     # Compile all features into a single vector
     features = np.concatenate([
-        aggregated_features,
-        [
-            # Uncomment the additional features you wish to include
-            # zcr,
-            # rmse,
-            # tempo,
-            # spectral_centroid,
-            # spectral_bandwidth,
-            # spectral_rolloff,
-            # chroma,
-            # mfcc_mean.mean(),
-            # mfcc_std.mean(),
-            mfcc_delta,
-            mfcc_delta2,
-            # contrast,
-            # tonnetz
-        ]
+        aggregated_features.flatten(),
+        # Uncomment the additional features you wish to include
+        # zcr,
+        # rmse,
+        # tempo,
+        # spectral_centroid,
+        # spectral_bandwidth,
+        # spectral_rolloff,
+        # chroma,
+        # mfcc_mean.mean(),
+        # mfcc_std.mean(),
+        # mfcc_delta.reshape(-1),
+        # mfcc_delta2.reshape(-1),
+        # contrast,
+        # tonnetz,
+        skewness.flatten(),
+        kurt.flatten(),
+        range.flatten(),
+        delta_mean.flatten(),
+        delta_std.flatten(),
+        delta_max.flatten(),
+        delta_min.flatten(),
+        # mfcc_entropy.flatten(),
+        PCA_mfcc_features.flatten(),
     ])
 
-    print(f'Processed {file_name}')
+    # print(f'Processed {file_name}')
     
     generated_features.append(features)  # Append the features for this song
     file_names.append(file_name)          # Store the file name
 
 # Convert the list of all songs' generated features into a DataFrame
-feature_columns = [
-    f'MFCC_mean_{i}' for i in range(13, 20)
-] + [
-    f'MFCC_std_{i}' for i in range(13, 20)
-] + [
-    f'MFCC_max_{i}' for i in range(13, 20)
-] + [
-    f'MFCC_min_{i}' for i in range(13, 20)
-] + [
-    # 'ZCR',
-    # 'RMSE',
-    # 'Tempo',
-    # 'Spectral_Centroid',
-    # 'Spectral_Bandwidth',
-    # 'Spectral_RollOff',
-    # 'Chroma',
-    # 'MFCC_Mean',
-    # 'MFCC_Std',
-    'MFCC_Delta',
-    'MFCC_Delta2',
-    # 'Spectral_Contrast',
-    # 'Tonnetz'
-]
+# feature_columns = [
+#     f'MFCC_mean_{i}' for i in [13, 14, 15, 16, 17, 18, 19]
+# ] + [
+#     f'MFCC_std_{i}' for i in [13, 14, 15, 16, 17, 18, 19]
+# ] + [
+#     f'MFCC_max_{i}' for i in [13, 14, 15, 16, 17, 18, 19]
+# ] + [
+#     f'MFCC_min_{i}' for i in [13, 14, 15, 16, 17, 18, 19]
+# ] + [
+#     # 'ZCR',
+#     # 'RMSE',
+#     # 'Tempo',
+#     # 'Spectral_Centroid',
+#     # 'Spectral_Bandwidth',
+#     # 'Spectral_RollOff',
+#     # 'Chroma',
+#     # 'MFCC_Mean',
+#     # 'MFCC_Std',
+#     # 'MFCC_Delta',
+#     # 'MFCC_Delta2',
+#     # 'Spectral_Contrast',
+#     # 'Tonnetz',
+#     'Skewness',
+#     'Kurtosis',
+#     'Range',
+#     'Delta_Mean',
+#     'Delta_Std',
+#     'Delta_Max',
+#     'Delta_Min',
+#     # 'MFCC_Entropy',
+#     'PCA_MFCC_1',
+#     'PCA_MFCC_2',
+#     'PCA_MFCC_3',
+#     'PCA_MFCC_4',
+#     'PCA_MFCC_5',
+# ]
+
+generated_features = np.vstack(generated_features)
+num_features = generated_features.shape[1]  # Number of features (columns)
+feature_columns = [f'feature_{i}' for i in range(num_features)]
 
 features_df = pd.DataFrame(generated_features, columns=feature_columns)
 features_df.insert(0, 'File', file_names)
