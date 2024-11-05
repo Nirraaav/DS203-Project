@@ -1,4 +1,4 @@
-1 - Jana Gana Mana
+1 - 
 2 - Jana Gana Mana (National Anthem) - Slowed Down
 3 - They don't care about us - Michael Jackson
 4 - Pyaar karne vaale - Asha Bhosale
@@ -46,32 +46,32 @@
 46 - Zaroorat hai Zaroorat hai - Kishore Kumar
 47 - 
 48 - Marathi Song - SHRUTI HELP
-49 - Marathi Song - SHRUTI HELP
-50 - 
+49 - Jambhul Pikalya Zadakhali - Asha Bhosle
+50 - Koi Humdum Na Raha - Kishore Kumar
 51 - Jeevan ke safar me raahi - Kishore Kumar
 52 - Marathi Song - SHRUTI HELP
-53 - 
-54 - 
-55 - 
-56 - 
-57 - 
-58 - 
-59 - 
-60 - 
+53 - Aao Na Gale Laga Lo Na - Asha Bhosle
+54 - Madhu Ithe An Chandra Tithe - Asha Bhosle , Mahendra Kapoor
+55 - Ratris Khel Chale - Mahendra Kapoor
+56 - Airaneechya Deva Tula - Lata Mangeshkar
+57 - Toch Chandrama Nabhant - Sudhir Phadke
+58 - Divas Tujhe He Phulayache - Arun Date
+59 - Nakhrewali - Kishore Kumar
+60 - Yeh Mera Dil Pyar Ka Deewana - Asha Bhosle
 61 - Jana Gana Mana (National Anthem) - Slowed Down
 62 - 
-63 - 
+63 - Chhoti Si Ye Duniya - Kishore Kumar
 64 - 
-65 - 
-66 - 
-67 - 
-68 - 
+65 - Swar Gangechya Kathavarti - Arun Date
+66 - Dum Maro Dum - Asha Bhosle
+67 - Pyare Bandhuo Sangeet Premio - Kishore Kumar
+68 - Pappa Sanga Kunache - Arun Sarnaik, Pramila Datar, Rani Varma
 69 - 
 70 - Marathi Song - SHRUTI HELP
 71 - Nigahein Milane Ko Jee Chahta Hai - Asha Bhosle
 72 - Dhund Madhumati - Lata Mangeshkar
 73 - Kuthe Kuthe jaycha honeymoonla - Asha Bhosale
-74 - Michael Jackson - SAHANA HELP
+74 - Sahana help Michael Jackson
 75 - Mere desh ka salam salam salam (not real song idk)
 76 - Aai mala nesav shalu nava - Sulochana Chavan
 77 - Ye re ghana - Asha Bhosale
@@ -108,9 +108,9 @@
 108 - 
 109 - Kunya Gavacha Aala Pakharu - Usha Mangeshkar 
 110 - Piya Tu Ab To Aaja - Asha Bhosle
-111 - Hum Hain Rahi Pyar Ke - Kishore Kumar
+111 -  Hum Hain Rahi Pyar Ke - Kishore Kumar
 112 - Chafa Bolena - Lata Mangeshkar
 113 -  
-114 - You Are Not Alone - Michael Jackson
-115 - Khali Haath Sham Aayi Hai - Asha Bhosle
+114 -  You Are Not Alone - Michael Jackson
+115 -  Khali Haath Sham Aayi Hai - Asha Bhosle
 116 - Jana Gana Mana (National Anthem) - Slowed Down
