@@ -146,7 +146,7 @@ for i in range(1, 117):
         PCA_mfcc_features.flatten(),
     ])
 
-    # print(f'Processed {file_name}')
+    print(f'Processed {file_name}')
     
     generated_features.append(features)  # Append the features for this song
     file_names.append(file_name)          # Store the file name
@@ -183,11 +183,6 @@ print(f'Silhouette Score: {silhouette_avg:.4f}')
 print(f'Davies-Bouldin Index: {db_index:.4f}')
 print(f'Calinski-Harabasz Score: {ch_score:.4f}')
 
-# Output the cluster label for each file
-print("\nCluster Labels for Each File:")
-for file_name, label in zip(file_names, cluster_labels):
-    print(f'{file_name}: Cluster {label}')
-
 # Visualize clusters using PCA for 2D projection
 pca = PCA(n_components=2)
 reduced_data = pca.fit_transform(mfcc_scaled)
@@ -201,9 +196,25 @@ plt.colorbar(label='Cluster Label')
 plt.savefig('cluster_plot.png')
 plt.show()
 
+cluster_label_mapping = {
+    0: "Other Artist 1",
+    1: "Jana Gana Mana",
+    2: "Asha Bhosale",
+    3: "Kishore Kumar",
+    4: "Michael Jackson",  # Replace with actual song/artist name if known
+    5: "Other Artist 2"   # Replace with actual song/artist name if known
+}
+
 # Save file names and cluster labels to 'file_cluster_labels.csv'
 output_df = pd.DataFrame({
     'File': file_names,
     'Cluster': cluster_labels
 })
+
+output_df['Cluster'] = output_df['Cluster'].map(cluster_label_mapping)
+
+print("\nDescriptive Cluster Labels for Each File:")
+for file_name, label in zip(file_names, output_df['Cluster']):
+    print(f'{file_name}: {label}')
+
 output_df.to_csv(f'labels/file_cluster_labels_{INDEX}.csv', index=False)

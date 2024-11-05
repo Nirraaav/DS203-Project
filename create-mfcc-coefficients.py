@@ -28,3 +28,7 @@ def create_MFCC_coefficients(file_name):
 
     except Exception as e:
        print(f"Error creating MFCC coefficients: {file_name}:{str(e)}")
+
+output = create_MFCC_coefficients('Temp/1.wav')
+#save to csv
+output.to_csv('Temp/1-MFCC.csv', header=False, index=False)
