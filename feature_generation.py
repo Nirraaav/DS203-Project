@@ -167,7 +167,7 @@ scaler = StandardScaler()
 mfcc_scaled = scaler.fit_transform(generated_features)
 
 # Perform K-Means clustering
-k = 6  # Number of clusters (you can experiment with different values)
+k = 4  # Number of clusters (you can experiment with different values)
 kmeans = KMeans(n_clusters=k, random_state=42)
 kmeans.fit(mfcc_scaled)
 
@@ -196,14 +196,14 @@ plt.colorbar(label='Cluster Label')
 plt.savefig('cluster_plot.png')
 plt.show()
 
-cluster_label_mapping = {
-    0: "Other Artist 1",
-    1: "Jana Gana Mana",
-    2: "Asha Bhosale",
-    3: "Kishore Kumar",
-    4: "Michael Jackson",  # Replace with actual song/artist name if known
-    5: "Other Artist 2"   # Replace with actual song/artist name if known
-}
+# cluster_label_mapping = {
+#     0: "Other Artist 1",
+#     1: "Jana Gana Mana",
+#     2: "Asha Bhosale",
+#     3: "Kishore Kumar",
+#     4: "Michael Jackson",  # Replace with actual song/artist name if known
+#     5: "Other Artist 2"   # Replace with actual song/artist name if known
+# }
 
 # Save file names and cluster labels to 'file_cluster_labels.csv'
 output_df = pd.DataFrame({
@@ -211,7 +211,7 @@ output_df = pd.DataFrame({
     'Cluster': cluster_labels
 })
 
-output_df['Cluster'] = output_df['Cluster'].map(cluster_label_mapping)
+# output_df['Cluster'] = output_df['Cluster'].map(cluster_label_mapping)
 
 print("\nDescriptive Cluster Labels for Each File:")
 for file_name, label in zip(file_names, output_df['Cluster']):

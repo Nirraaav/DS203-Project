@@ -1,0 +1,4 @@
+1)  1-7, 8-12, 13-20 
+	Make feature for this
+2)  VIF to find better features
+3) 	PCA on the features

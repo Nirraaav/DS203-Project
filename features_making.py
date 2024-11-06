@@ -82,7 +82,7 @@ fig.update_layout(xaxis_title='Features', yaxis_title='Features', title_x=0.5)
 fig.show()
 
 # Perform K-Means clustering
-k = 6  # Number of clusters (you can experiment with different values)
+k = 4  # Number of clusters (you can experiment with different values)
 kmeans = KMeans(n_clusters=k, random_state=42)
 kmeans.fit(all_features_df.iloc[:, 1:])  # Fit the model to all features except the song number
 
