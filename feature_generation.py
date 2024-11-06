@@ -22,56 +22,56 @@ def aggregate_mfcc_selective(mfcc_data):
     features = np.concatenate([mfcc_mean, mfcc_std, mfcc_max, mfcc_min])
     return features
 
-def compute_zcr(audio_segment):
-    zcr = librosa.feature.zero_crossing_rate(audio_segment)
-    return np.mean(zcr)
+# def compute_zcr(audio_segment):
+#     zcr = librosa.feature.zero_crossing_rate(audio_segment)
+#     return np.mean(zcr)
 
-def compute_rmse(audio_segment):
-    rmse = librosa.feature.rms(y=audio_segment)
-    return np.mean(rmse)
+# def compute_rmse(audio_segment):
+#     rmse = librosa.feature.rms(y=audio_segment)
+#     return np.mean(rmse)
 
-def compute_tempo(audio_segment, sr=44100):
-    onset_env = librosa.onset.onset_strength(y=audio_segment, sr=sr)
-    detected_tempo = compute_tempo_function(onset_envelope=onset_env, sr=sr)
-    return detected_tempo[0]
+# def compute_tempo(audio_segment, sr=44100):
+#     onset_env = librosa.onset.onset_strength(y=audio_segment, sr=sr)
+#     detected_tempo = compute_tempo_function(onset_envelope=onset_env, sr=sr)
+#     return detected_tempo[0]
 
-def compute_spectral_centroid(audio_segment, sr=44100):
-    spectral_centroid = librosa.feature.spectral_centroid(y=audio_segment, sr=sr)
-    return np.mean(spectral_centroid)
+# def compute_spectral_centroid(audio_segment, sr=44100):
+#     spectral_centroid = librosa.feature.spectral_centroid(y=audio_segment, sr=sr)
+#     return np.mean(spectral_centroid)
 
-def compute_spectral_bandwidth(audio_segment, sr=44100):
-    spectral_bandwidth = librosa.feature.spectral_bandwidth(y=audio_segment, sr=sr)
-    return np.mean(spectral_bandwidth)
+# def compute_spectral_bandwidth(audio_segment, sr=44100):
+#     spectral_bandwidth = librosa.feature.spectral_bandwidth(y=audio_segment, sr=sr)
+#     return np.mean(spectral_bandwidth)
 
-def compute_spectral_rolloff(audio_segment, sr=44100):
-    rolloff = librosa.feature.spectral_rolloff(y=audio_segment, sr=sr, roll_percent=0.85)
-    return np.mean(rolloff)
+# def compute_spectral_rolloff(audio_segment, sr=44100):
+#     rolloff = librosa.feature.spectral_rolloff(y=audio_segment, sr=sr, roll_percent=0.85)
+#     return np.mean(rolloff)
 
-def compute_chroma(audio_segment, sr=44100):
-    chroma = librosa.feature.chroma_stft(y=audio_segment, sr=sr)
-    return np.mean(chroma)
+# def compute_chroma(audio_segment, sr=44100):
+#     chroma = librosa.feature.chroma_stft(y=audio_segment, sr=sr)
+#     return np.mean(chroma)
 
-def compute_mfcc_mean(mfcc_data):
-    return np.mean(mfcc_data, axis=1)
+# def compute_mfcc_mean(mfcc_data):
+#     return np.mean(mfcc_data, axis=1)
 
-def compute_mfcc_std(mfcc_data):
-    return np.std(mfcc_data, axis=1)
+# def compute_mfcc_std(mfcc_data):
+#     return np.std(mfcc_data, axis=1)
 
-def compute_mfcc_delta(mfcc_data):
-    mfcc_delta = librosa.feature.delta(mfcc_data)
-    return np.mean(mfcc_delta)
+# def compute_mfcc_delta(mfcc_data):
+#     mfcc_delta = librosa.feature.delta(mfcc_data)
+#     return np.mean(mfcc_delta)
 
-def compute_mfcc_delta2(mfcc_data):
-    mfcc_delta2 = librosa.feature.delta(mfcc_data, order=2)
-    return np.mean(mfcc_delta2)
+# def compute_mfcc_delta2(mfcc_data):
+#     mfcc_delta2 = librosa.feature.delta(mfcc_data, order=2)
+#     return np.mean(mfcc_delta2)
 
-def compute_contrast(audio_segment, sr=44100):
-    contrast = librosa.feature.spectral_contrast(y=audio_segment, sr=sr)
-    return np.mean(contrast)
+# def compute_contrast(audio_segment, sr=44100):
+#     contrast = librosa.feature.spectral_contrast(y=audio_segment, sr=sr)
+#     return np.mean(contrast)
 
-def compute_tonnetz(audio_segment, sr=44100):
-    tonnetz = librosa.feature.tonnetz(y=librosa.effects.harmonic(audio_segment), sr=sr)
-    return np.mean(tonnetz)
+# def compute_tonnetz(audio_segment, sr=44100):
+#     tonnetz = librosa.feature.tonnetz(y=librosa.effects.harmonic(audio_segment), sr=sr)
+#     return np.mean(tonnetz)
 
 # Initialize lists to store features and file names
 mfcc_all_songs = []

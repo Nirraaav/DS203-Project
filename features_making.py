@@ -10,7 +10,7 @@ from librosa.feature.rhythm import tempo as compute_tempo_function
 from scipy.stats import skew, kurtosis
 import plotly.express as px
 
-INDEX = 1  # Start index for MFCC features you want to include
+INDEX = 13  # Start index for MFCC features you want to include
 
 def extract_features(mfcc_data):
     # Select the MFCC data starting from the specified INDEX
@@ -38,8 +38,10 @@ def extract_features(mfcc_data):
 
 # Define DataFrame columns
 columns = []
-for stat in ['mean', 'std', 'max', 'min', 'delta', 'delta2', 'delta_max', 'delta2_max', 'delta_min', 'delta_max','skew', 'kurtosis', 'range']:
-    columns.extend([f'{stat}_mfcc_{i}' for i in range(INDEX, 20)])  # assuming MFCCs from INDEX to 19
+# Define actual MFCC range based on expected MFCC dimensions
+mfcc_range = range(INDEX, 20)  # Adjust the range here if needed to match data
+for stat in ['mean', 'std', 'max', 'min', 'delta', 'delta2', 'delta_max', 'delta2_max', 'delta_min', 'delta2_min', 'skew', 'kurtosis', 'range', 'total_energy', 'energy_entropy']:
+    columns.extend([f'{stat}_mfcc_{i}' for i in mfcc_range])
 
 # Initialize an empty DataFrame to store all features
 all_features_df = pd.DataFrame(columns=['song_number'] + columns)
@@ -52,10 +54,15 @@ for i in range(1, 117):
     features = extract_features(mfcc_data)
     
     # Flatten the feature dictionary into a list
-    row = [f'song_{i}'] + [features[stat][j] for stat in features for j in range(len(features[stat]))]
-    
-    # Append the row to the DataFrame
-    all_features_df.loc[i - 1] = row
+    row = [f'song_{i}']
+    for stat in features:
+        row.extend(features[stat])
+
+    # Ensure row matches column length
+    if len(row) == len(all_features_df.columns):
+        all_features_df.loc[i - 1] = row
+    else:
+        print(f"Row length mismatch for file {file_name}. Expected {len(all_features_df.columns)}, got {len(row)}.")
 
 # Generate the correlation matrix
 heatmap_data = all_features_df.drop(columns=['song_number'])
@@ -74,9 +81,6 @@ fig.update_layout(xaxis_title='Features', yaxis_title='Features', title_x=0.5)
 # Show the heatmap
 fig.show()
 
-
-
-
 # Perform K-Means clustering
 k = 6  # Number of clusters (you can experiment with different values)
 kmeans = KMeans(n_clusters=k, random_state=42)
@@ -88,6 +92,3 @@ all_features_df.insert(1, 'cluster_name', cluster_labels)
 # Save the DataFrame to a CSV file
 all_features_df.to_csv('extracted_features.csv', index=False)
 print("Features saved to extracted_features.csv")
-
-
-
