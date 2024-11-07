@@ -10,6 +10,7 @@ import librosa
 import matplotlib.pyplot as plt
 from librosa.feature.rhythm import tempo as compute_tempo_function
 from scipy.stats import skew, kurtosis
+from tqdm import tqdm
 
 INDEX = 20
 
@@ -43,14 +44,14 @@ file_names = []
 generated_features = []
 
 # Loop through all CSV files in the data-v2 directory and sort them
-# data_directory = 'data-v2-copy'
-# data2_directory = 'data-v2'
-data_directory = 'test-mfcc-copy'
-data2_directory = 'test-mfcc'
+data_directory = 'data-v2-copy'
+data2_directory = 'data-v2'
+# data_directory = 'test-mfcc-copy'
+# data2_directory = 'test-mfcc'
 files = [file for file in os.listdir(data_directory) if file.endswith(".csv")]
 files.sort()  # Sort the files alphabetically
 
-for file_name in files:
+for file_name in tqdm(files):
     file_path = os.path.join(data_directory, file_name)
     mfcc_data = pd.read_csv(file_path, header=None).values
     file2_path = os.path.join(data2_directory, file_name)   
@@ -111,7 +112,7 @@ for file_name in files:
         # energy_entropy_delta2.flatten(),
     ])
 
-    print(f'Processed {file_name}')
+    # print(f'Processed {file_name}')
         
     generated_features.append(features)  # Append the features for this song
     file_names.append(file_name)          # Store the file name
@@ -127,7 +128,7 @@ features_df = pd.DataFrame(generated_features, columns=feature_columns)
 features_df.insert(0, 'File', file_names)
 
 # Save generated features to 'features_generated.csv'
-features_df.to_csv(f'features_generated_{INDEX}.csv', index=False)
+features_df.to_csv(f'features_generated.csv', index=False)
 
 # Standardize the features before PCA
 scaler = StandardScaler()
