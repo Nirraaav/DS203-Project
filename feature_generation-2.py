@@ -2,8 +2,9 @@ import os
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN, Birch, MeanShift, SpectralClustering, OPTICS, AffinityPropagation
 from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score
+from sklearn.mixture import GaussianMixture
 from sklearn.decomposition import PCA
 import librosa
 import matplotlib.pyplot as plt
@@ -128,17 +129,19 @@ optimal_components = 7  # Adjust this based on the elbow plot
 pca = PCA(n_components=optimal_components)
 pca_features = pca.fit_transform(mfcc_scaled)
 
+clusters = 6
+
 # Define clustering algorithms
 clustering_algorithms = {
-    'KMeans': KMeans(n_clusters=3, random_state=42),
-    'AgglomerativeClustering': AgglomerativeClustering(n_clusters=3),
+    'KMeans': KMeans(n_clusters=clusters),
+    'AgglomerativeClustering': AgglomerativeClustering(n_clusters=clusters),
     'DBSCAN': DBSCAN(eps=0.5, min_samples=5),
-    'Birch': Birch(n_clusters=3),
+    'Birch': Birch(n_clusters=clusters),
     'MeanShift': MeanShift(),
-    'SpectralClustering': SpectralClustering(n_clusters=3, random_state=42),
+    'SpectralClustering': SpectralClustering(n_clusters=clusters),
     'OPTICS': OPTICS(min_samples=5),
-    'AffinityPropagation': AffinityPropagation(random_state=42),
-    'GaussianMixture': GaussianMixture(n_components=3, random_state=42)
+    'AffinityPropagation': AffinityPropagation(),
+    'GaussianMixture': GaussianMixture(n_components=clusters)
 }
 
 # Store metrics for each clustering algorithm
