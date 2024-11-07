@@ -1,140 +1,117 @@
 File,Cluster
-01-MFCC.csv,Michael Jackson
-02-MFCC.csv,Michael Jackson
-03-MFCC.csv,Jana Gana Mana
-04-MFCC.csv,Asha Bhosale
-05-MFCC.csv,Kishore Kumar
-06-MFCC.csv,Asha Bhosale
-07-MFCC.csv,Other Artist 1
-08-MFCC.csv,Other Artist 1
-09-MFCC.csv,Michael Jackson
-10-MFCC.csv,Asha Bhosale
-100-MFCC.csv,Kishore Kumar
-101-MFCC.csv,Other Artist 1
-102-MFCC.csv,Asha Bhosale
-103-MFCC.csv,Jana Gana Mana
-104-MFCC.csv,Other Artist 1
-105-MFCC.csv,Asha Bhosale
-106-MFCC.csv,Other Artist 1
-107-MFCC.csv,Michael Jackson
-108-MFCC.csv,Michael Jackson
-109-MFCC.csv,Jana Gana Mana
-11-MFCC.csv,Other Artist 1
-110-MFCC.csv,Other Artist 1
-111-MFCC.csv,Kishore Kumar
-112-MFCC.csv,Asha Bhosale
-113-MFCC.csv,Asha Bhosale
-114-MFCC.csv,Other Artist 1
-115-MFCC.csv,Other Artist 1
-116-MFCC.csv,Other Artist 2
-12-MFCC.csv,Asha Bhosale
-13-MFCC.csv,Asha Bhosale
-14-MFCC.csv,Other Artist 1
-15-MFCC.csv,Other Artist 1
-16-MFCC.csv,Michael Jackson
-17-MFCC.csv,Michael Jackson
-18-MFCC.csv,Kishore Kumar
-19-MFCC.csv,Other Artist 1
-20-MFCC.csv,Jana Gana Mana
-21-MFCC.csv,Other Artist 1
-22-MFCC.csv,Other Artist 1
-23-MFCC.csv,Other Artist 1
-24-MFCC.csv,Jana Gana Mana
-25-MFCC.csv,Other Artist 1
-26-MFCC.csv,Michael Jackson
-27-MFCC.csv,Michael Jackson
-28-MFCC.csv,Kishore Kumar
-29-MFCC.csv,Kishore Kumar
-30-MFCC.csv,Other Artist 1
-31-MFCC.csv,Other Artist 1
-32-MFCC.csv,Asha Bhosale
-33-MFCC.csv,Asha Bhosale
-34-MFCC.csv,Other Artist 1
-35-MFCC.csv,Michael Jackson
-36-MFCC.csv,Other Artist 1
-37-MFCC.csv,Other Artist 1
-38-MFCC.csv,Asha Bhosale
-39-MFCC.csv,Asha Bhosale
-40-MFCC.csv,Asha Bhosale
-41-MFCC.csv,Asha Bhosale
-42-MFCC.csv,Asha Bhosale
-43-MFCC.csv,Asha Bhosale
-44-MFCC.csv,Jana Gana Mana
-45-MFCC.csv,Michael Jackson
-46-MFCC.csv,Kishore Kumar
-47-MFCC.csv,Jana Gana Mana
-48-MFCC.csv,Asha Bhosale
-49-MFCC.csv,Asha Bhosale
-50-MFCC.csv,Michael Jackson
-51-MFCC.csv,Kishore Kumar
-52-MFCC.csv,Jana Gana Mana
-53-MFCC.csv,Other Artist 1
-54-MFCC.csv,Other Artist 1
-55-MFCC.csv,Other Artist 1
-56-MFCC.csv,Asha Bhosale
-57-MFCC.csv,Other Artist 1
-58-MFCC.csv,Other Artist 1
-59-MFCC.csv,Michael Jackson
-60-MFCC.csv,Other Artist 1
-61-MFCC.csv,Michael Jackson
-62-MFCC.csv,Asha Bhosale
-63-MFCC.csv,Kishore Kumar
-64-MFCC.csv,Other Artist 1
-65-MFCC.csv,Other Artist 1
-66-MFCC.csv,Kishore Kumar
-67-MFCC.csv,Other Artist 2
-68-MFCC.csv,Other Artist 1
-69-MFCC.csv,Other Artist 1
-70-MFCC.csv,Jana Gana Mana
-71-MFCC.csv,Other Artist 1
-72-MFCC.csv,Asha Bhosale
-73-MFCC.csv,Asha Bhosale
-74-MFCC.csv,Jana Gana Mana
-75-MFCC.csv,Michael Jackson
-76-MFCC.csv,Other Artist 1
-77-MFCC.csv,Asha Bhosale
-78-MFCC.csv,Jana Gana Mana
-79-MFCC.csv,Asha Bhosale
-80-MFCC.csv,Michael Jackson
-81-MFCC.csv,Michael Jackson
+01-MFCC.csv,Other Artist 1
+02-MFCC.csv,Other Artist 1
+03-MFCC.csv,Asha Bhosale
+04-MFCC.csv,Kishore Kumar
+05-MFCC.csv,Jana Gana Mana
+06-MFCC.csv,Other Artist 2
+07-MFCC.csv,Michael Jackson
+08-MFCC.csv,Kishore Kumar
+09-MFCC.csv,Jana Gana Mana
+10-MFCC.csv,Other Artist 2
+100-MFCC.csv,Other Artist 1
+101-MFCC.csv,Michael Jackson
+102-MFCC.csv,Other Artist 2
+103-MFCC.csv,Asha Bhosale
+104-MFCC.csv,Kishore Kumar
+105-MFCC.csv,Other Artist 2
+106-MFCC.csv,Michael Jackson
+107-MFCC.csv,Other Artist 1
+108-MFCC.csv,Other Artist 1
+109-MFCC.csv,Kishore Kumar
+11-MFCC.csv,Kishore Kumar
+110-MFCC.csv,Michael Jackson
+111-MFCC.csv,Jana Gana Mana
+112-MFCC.csv,Other Artist 2
+113-MFCC.csv,Other Artist 2
+114-MFCC.csv,Michael Jackson
+115-MFCC.csv,Other Artist 2
+116-MFCC.csv,Jana Gana Mana
+12-MFCC.csv,Kishore Kumar
+13-MFCC.csv,Other Artist 2
+14-MFCC.csv,Michael Jackson
+15-MFCC.csv,Other Artist 2
+16-MFCC.csv,Other Artist 1
+17-MFCC.csv,Other Artist 1
+18-MFCC.csv,Jana Gana Mana
+19-MFCC.csv,Kishore Kumar
+20-MFCC.csv,Asha Bhosale
+21-MFCC.csv,Michael Jackson
+22-MFCC.csv,Michael Jackson
+23-MFCC.csv,Michael Jackson
+24-MFCC.csv,Asha Bhosale
+25-MFCC.csv,Kishore Kumar
+26-MFCC.csv,Jana Gana Mana
+27-MFCC.csv,Other Artist 1
+28-MFCC.csv,Michael Jackson
+29-MFCC.csv,Jana Gana Mana
+30-MFCC.csv,Kishore Kumar
+31-MFCC.csv,Michael Jackson
+32-MFCC.csv,Other Artist 2
+33-MFCC.csv,Other Artist 2
+34-MFCC.csv,Michael Jackson
+35-MFCC.csv,Other Artist 1
+36-MFCC.csv,Michael Jackson
+37-MFCC.csv,Michael Jackson
+38-MFCC.csv,Other Artist 2
+39-MFCC.csv,Other Artist 2
+40-MFCC.csv,Kishore Kumar
+41-MFCC.csv,Other Artist 2
+42-MFCC.csv,Other Artist 2
+43-MFCC.csv,Other Artist 2
+44-MFCC.csv,Asha Bhosale
+45-MFCC.csv,Other Artist 1
+46-MFCC.csv,Jana Gana Mana
+47-MFCC.csv,Kishore Kumar
+48-MFCC.csv,Other Artist 2
+49-MFCC.csv,Kishore Kumar
+50-MFCC.csv,Jana Gana Mana
+51-MFCC.csv,Jana Gana Mana
+52-MFCC.csv,Kishore Kumar
+53-MFCC.csv,Kishore Kumar
+54-MFCC.csv,Michael Jackson
+55-MFCC.csv,Michael Jackson
+56-MFCC.csv,Other Artist 2
+57-MFCC.csv,Michael Jackson
+58-MFCC.csv,Michael Jackson
+59-MFCC.csv,Jana Gana Mana
+60-MFCC.csv,Michael Jackson
+61-MFCC.csv,Jana Gana Mana
+62-MFCC.csv,Other Artist 2
+63-MFCC.csv,Jana Gana Mana
+64-MFCC.csv,Kishore Kumar
+65-MFCC.csv,Michael Jackson
+66-MFCC.csv,Jana Gana Mana
+67-MFCC.csv,Jana Gana Mana
+68-MFCC.csv,Michael Jackson
+69-MFCC.csv,Kishore Kumar
+70-MFCC.csv,Kishore Kumar
+71-MFCC.csv,Michael Jackson
+72-MFCC.csv,Other Artist 2
+73-MFCC.csv,Kishore Kumar
+74-MFCC.csv,Asha Bhosale
+75-MFCC.csv,Other Artist 1
+76-MFCC.csv,Kishore Kumar
+77-MFCC.csv,Other Artist 2
+78-MFCC.csv,Asha Bhosale
+79-MFCC.csv,Other Artist 2
+80-MFCC.csv,Other Artist 1
+81-MFCC.csv,Other Artist 1
 82-MFCC.csv,Michael Jackson
-83-MFCC.csv,Michael Jackson
-84-MFCC.csv,Kishore Kumar
-85-MFCC.csv,Asha Bhosale
-86-MFCC.csv,Jana Gana Mana
-87-MFCC.csv,Michael Jackson
-88-MFCC.csv,Other Artist 1
-89-MFCC.csv,Jana Gana Mana
-90-MFCC.csv,Michael Jackson
-91-MFCC.csv,Asha Bhosale
-92-MFCC.csv,Other Artist 1
-93-MFCC.csv,Kishore Kumar
-94-MFCC.csv,Other Artist 1
-95-MFCC.csv,Michael Jackson
-96-MFCC.csv,Michael Jackson
-97-MFCC.csv,Kishore Kumar
-98-MFCC.csv,Other Artist 1
-99-MFCC.csv,Asha Bhosale
-Asha-Bhosle-1-MFCC.csv,Asha Bhosale
-Asha-Bhosle-10-MFCC.csv,Other Artist 1
-Asha-Bhosle-11-MFCC.csv,Other Artist 1
-Asha-Bhosle-12-MFCC.csv,Other Artist 1
-Asha-Bhosle-13-MFCC.csv,Asha Bhosale
-Asha-Bhosle-14-MFCC.csv,Other Artist 1
-Asha-Bhosle-15-MFCC.csv,Other Artist 1
-Asha-Bhosle-16-MFCC.csv,Other Artist 1
-Asha-Bhosle-17-MFCC.csv,Other Artist 1
-Asha-Bhosle-18-MFCC.csv,Asha Bhosale
-Asha-Bhosle-19-MFCC.csv,Asha Bhosale
-Asha-Bhosle-2-MFCC.csv,Asha Bhosale
-Asha-Bhosle-20-MFCC.csv,Other Artist 1
-Asha-Bhosle-21-MFCC.csv,Other Artist 1
-Asha-Bhosle-22-MFCC.csv,Asha Bhosale
-Asha-Bhosle-23-MFCC.csv,Other Artist 1
-Asha-Bhosle-3-MFCC.csv,Asha Bhosale
-Asha-Bhosle-4-MFCC.csv,Other Artist 1
-Asha-Bhosle-5-MFCC.csv,Jana Gana Mana
-Asha-Bhosle-6-MFCC.csv,Asha Bhosale
-Asha-Bhosle-7-MFCC.csv,Other Artist 1
-Asha-Bhosle-8-MFCC.csv,Other Artist 1
-Asha-Bhosle-9-MFCC.csv,Other Artist 1
+83-MFCC.csv,Jana Gana Mana
+84-MFCC.csv,Jana Gana Mana
+85-MFCC.csv,Other Artist 2
+86-MFCC.csv,Asha Bhosale
+87-MFCC.csv,Other Artist 1
+88-MFCC.csv,Kishore Kumar
+89-MFCC.csv,Kishore Kumar
+90-MFCC.csv,Other Artist 1
+91-MFCC.csv,Other Artist 2
+92-MFCC.csv,Michael Jackson
+93-MFCC.csv,Jana Gana Mana
+94-MFCC.csv,Michael Jackson
+95-MFCC.csv,Other Artist 1
+96-MFCC.csv,Jana Gana Mana
+97-MFCC.csv,Jana Gana Mana
+98-MFCC.csv,Michael Jackson
+99-MFCC.csv,Other Artist 2

@@ -10,10 +10,23 @@ import matplotlib.pyplot as plt
 from librosa.feature.rhythm import tempo as compute_tempo_function
 from scipy.stats import skew, kurtosis
 
-INDEX = 13
+INDEX = 20
 
 def aggregate_mfcc_selective(mfcc_data):
-    mfcc_selected = mfcc_data[INDEX:, :] 
+    # mfcc_selected = mfcc_data[:, :] 
+    # select rows 1, 2, and 3 from mfcc_data
+    mfcc_selected = mfcc_data[0:3, :]
+    
+    mfcc_mean = np.mean(mfcc_selected, axis=1)
+    mfcc_std = np.std(mfcc_selected, axis=1)
+    mfcc_max = np.max(mfcc_selected, axis=1)
+    mfcc_min = np.min(mfcc_selected, axis=1)
+    
+    features = np.concatenate([mfcc_mean, mfcc_std, mfcc_max, mfcc_min])
+    return features
+
+def aggregate_mfcc_selective2(mfcc_data):
+    mfcc_selected = mfcc_data[0:20, :] 
     
     mfcc_mean = np.mean(mfcc_selected, axis=1)
     mfcc_std = np.std(mfcc_selected, axis=1)
@@ -29,19 +42,23 @@ file_names = []
 generated_features = []
 
 # Loop through all CSV files in the data-v2 directory and sort them
-data_directory = 'data-v2'
+data_directory = 'data-v2-copy'
+data2_directory = 'data-v2'
 files = [file for file in os.listdir(data_directory) if file.endswith("-MFCC.csv")]
 files.sort()  # Sort the files alphabetically
 
 for file_name in files:
     file_path = os.path.join(data_directory, file_name)
     mfcc_data = pd.read_csv(file_path, header=None).values
+    file2_path = os.path.join(data2_directory, file_name)   
+    mfcc_data2 = pd.read_csv(file2_path, header=None).values
 
     # Compute aggregated MFCC features
     aggregated_features = aggregate_mfcc_selective(mfcc_data)
+    aggregated_features2 = aggregate_mfcc_selective2(mfcc_data2)
     skewness = skew(mfcc_data, axis=1)
     kurt = kurtosis(mfcc_data, axis=1)
-    range_max_min = np.ptp(mfcc_data, axis=1)
+    range_max_min = np.ptp(mfcc_data, axis=1) # peak-to-peak range for each MFCC coefficient from 1 to 20
 
     delta_mfcc = np.diff(mfcc_data, axis=1)
     delta_delta_mfcc = np.diff(delta_mfcc, axis=1)
@@ -54,7 +71,9 @@ for file_name in files:
     # Compile all features into a single vector
     features = np.concatenate([
         aggregated_features.flatten(),
+        aggregated_features2.flatten(),
         range_max_min.flatten(),
+        # kurt.flatten(),
         delta_mean.flatten(),
         delta_std.flatten(),
         delta_max.flatten(),
@@ -68,6 +87,7 @@ for file_name in files:
 
 # Stack the generated features into a numpy array
 generated_features = np.vstack(generated_features)
+print(f'\nGenerated {generated_features.shape[0]} feature vectors with {generated_features.shape[1]} features each')
 total_features = generated_features.shape[1]
 feature_columns = [f'feature_{i}' for i in range(total_features)]
 
@@ -82,58 +102,114 @@ features_df.to_csv(f'features_generated_{INDEX}.csv', index=False)
 scaler = StandardScaler()
 mfcc_scaled = scaler.fit_transform(generated_features)
 
-# Apply PCA on the entire feature set (instead of on raw MFCC data)
-pca = PCA(n_components=5)  # Adjust number of components if needed
+# # Perform PCA and capture the explained variance for a range of components
+# explained_variances = []
+# components_range = range(1, min(mfcc_scaled.shape[1], 100))  # Up to 100 components or the max number of features
+
+# # for n_components in components_range:
+# #     pca = PCA(n_components=n_components)
+# #     pca.fit(mfcc_scaled)
+# #     explained_variances.append(np.sum(pca.explained_variance_ratio_))
+
+# # # Plot the elbow diagram for PCA
+# # plt.figure(figsize=(8, 6))
+# # plt.plot(components_range, explained_variances, marker='o', linestyle='--')
+# # plt.title('Explained Variance by Number of PCA Components')
+# # plt.xlabel('Number of PCA Components')
+# # plt.ylabel('Cumulative Explained Variance')
+# # plt.grid(True)
+# # plt.savefig('elbow_plot.png')
+# # plt.show()
+
+# Based on the elbow diagram, select the optimal number of components
+optimal_components = 7  # Adjust this based on the elbow plot
+
+# Apply PCA on the entire feature set with the optimal number of components
+pca = PCA(n_components=optimal_components)
 pca_features = pca.fit_transform(mfcc_scaled)
 
-# Perform K-Means clustering on PCA-reduced data
-k = 6  # Number of clusters (you can experiment with different values)
-kmeans = KMeans(n_clusters=k, random_state=42)
-kmeans.fit(pca_features)
-
-# Get cluster labels for each song
-cluster_labels = kmeans.labels_
-
-# Evaluate clustering with different metrics
-silhouette_avg = silhouette_score(pca_features, cluster_labels)
-db_index = davies_bouldin_score(pca_features, cluster_labels)
-ch_score = calinski_harabasz_score(pca_features, cluster_labels)
-
-print(f'Silhouette Score: {silhouette_avg:.4f}')
-print(f'Davies-Bouldin Index: {db_index:.4f}')
-print(f'Calinski-Harabasz Score: {ch_score:.4f}')
-
-# Visualize clusters using PCA for 2D projection (already PCA-reduced)
-plt.scatter(pca_features[:, 0], pca_features[:, 1], c=cluster_labels, cmap='viridis', s=50)
-plt.title('K-Means Clustering on PCA-Reduced Features')
-plt.xlabel('Principal Component 1')
-plt.ylabel('Principal Component 2')
-plt.colorbar(label='Cluster Label')
-plt.savefig('cluster_plot.png')
-plt.show()
-
-# Assign descriptive cluster labels
-cluster_label_mapping = {
-    0: "Other Artist 1",
-    1: "Kishore Kumar",
-    2: "Michael Jackson",
-    3: "Jana Gana Mana",
-    4: "Asha Bhosale",  # Replace with actual song/artist name if known
-    5: "Other Artist 2"   # Replace with actual song/artist name if known
+# Define clustering algorithms
+clustering_algorithms = {
+    'KMeans': KMeans(n_clusters=3, random_state=42),
+    'AgglomerativeClustering': AgglomerativeClustering(n_clusters=3),
+    'DBSCAN': DBSCAN(eps=0.5, min_samples=5),
+    'Birch': Birch(n_clusters=3),
+    'MeanShift': MeanShift(),
+    'SpectralClustering': SpectralClustering(n_clusters=3, random_state=42),
+    'OPTICS': OPTICS(min_samples=5),
+    'AffinityPropagation': AffinityPropagation(random_state=42),
+    'GaussianMixture': GaussianMixture(n_components=3, random_state=42)
 }
 
-# Save file names and cluster labels to 'file_cluster_labels.csv'
-output_df = pd.DataFrame({
-    'File': file_names,
-    'Cluster': cluster_labels
-})
+# Store metrics for each clustering algorithm
+clustering_metrics = []
 
-output_df['Cluster'] = output_df['Cluster'].map(cluster_label_mapping)
+for name, algorithm in clustering_algorithms.items():
+    try:
+        print(f"\nRunning {name}...")
 
-print("\nDescriptive Cluster Labels for Each File:")
-for file_name, label in zip(file_names, output_df['Cluster']):
-    print(f'{file_name}: {label}')
+        # Apply the clustering algorithm
+        if name == 'GaussianMixture':
+            cluster_labels = algorithm.fit_predict(pca_features)
+        else:
+            cluster_labels = algorithm.fit(pca_features).labels_
+        
+        # Calculate evaluation metrics
+        silhouette_avg = silhouette_score(pca_features, cluster_labels)
+        db_index = davies_bouldin_score(pca_features, cluster_labels)
+        ch_score = calinski_harabasz_score(pca_features, cluster_labels)
 
-# Save the file names and corresponding clusters with descriptive labels
-output_df.to_csv(f'labels/file_cluster_labels_{INDEX}.csv', index=False)
+        # Store the results
+        clustering_metrics.append({
+            'Algorithm': name,
+            'Silhouette Score': silhouette_avg,
+            'Davies-Bouldin Index': db_index,
+            'Calinski-Harabasz Score': ch_score
+        })
 
+        # Print the metrics
+        print(f"{name} Results:")
+        print(f"Silhouette Score: {silhouette_avg:.4f}")
+        print(f"Davies-Bouldin Index: {db_index:.4f}")
+        print(f"Calinski-Harabasz Score: {ch_score:.4f}")
+
+        # for each clustering algorithm, save the labels to a CSV file
+        output_df = pd.DataFrame({
+            'File': file_names,
+            'Cluster': cluster_labels
+        })
+
+        output_df.to_csv(f'labels/file_cluster_labels_{name}_{INDEX}.csv', index=False)
+
+    except Exception as e:
+        print(f"An error occurred with {name}: {e}")
+
+# Save the clustering metrics to a CSV file
+metrics_df = pd.DataFrame(clustering_metrics)
+metrics_df.to_csv('clustering_metrics.csv', index=False)
+print("\nClustering metrics saved to clustering_metrics.csv")
+
+# # Assign descriptive cluster labels
+# cluster_label_mapping = {
+#     0: "Other Artist 1",
+#     1: "Kishore Kumar",
+#     2: "Michael Jackson",
+#     3: "Jana Gana Mana",
+#     4: "Asha Bhosale",  # Replace with actual song/artist name if known
+#     5: "Other Artist 2"   # Replace with actual song/artist name if known
+# }
+
+# # Save file names and cluster labels to 'file_cluster_labels.csv'
+# output_df = pd.DataFrame({
+#     'File': file_names,
+#     'Cluster': cluster_labels
+# })
+
+# output_df['Cluster'] = output_df['Cluster'].map(cluster_label_mapping)
+
+# print("\nDescriptive Cluster Labels for Each File:")
+# for file_name, label in zip(file_names, output_df['Cluster']):
+#     print(f'{file_name}: {label}')
+
+# # Save the file names and corresponding clusters with descriptive labels
+# output_df.to_csv(f'labels/file_cluster_labels_{INDEX}.csv', index=False)
