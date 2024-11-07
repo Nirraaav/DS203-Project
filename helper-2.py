@@ -18,8 +18,8 @@ def append_means(mfcc_data):
     return mfcc_data_extended
 
 # Loop through all CSV files in the test directory (assuming you have a test directory)
-test_directory = 'data-v2-copy'
-test_files = [file for file in os.listdir(test_directory) if file.endswith("01-MFCC.csv")]
+test_directory = 'test-mfcc-copy'
+test_files = [file for file in os.listdir(test_directory) if file.endswith("-MFCC.csv")]
 test_files.sort()  # Sort the files alphabetically
 
 for test_file in test_files:
@@ -30,20 +30,19 @@ for test_file in test_files:
     # mfcc_data_test_extended = append_means(mfcc_data_test)
     
     # # Save the modified test file with the appended rows
-    # extended_file_path = test_file_path.replace('.csv', '_extended.csv')
-    # pd.DataFrame(mfcc_data_test_extended).to_csv(extended_file_path, header=False, index=False)
+    # pd.DataFrame(mfcc_data_test_extended).to_csv(f"{test_directory}/{test_file}", header=False, index=False)
 
-    # print(f'Processed {test_file} and saved extended file as {extended_file_path}')   
+    # print(f'Processed {test_file} and saved extended file as {test_file}')   
     
-    # # delete files ending with -MFCC.csv
-    # os.remove(os.path.join(test_directory, test_file))
+    # # # delete files ending with -MFCC.csv
+    # # os.remove(os.path.join(test_directory, test_file))
 
-    # # remove _extended from the filenames
-    # new_filename = os.path.join(test_directory, test_file.replace('_extended', ''))
-    # os.rename(os.path.join(test_directory, test_file), new_filename)
-    # print(f'Renamed {test_file} to {new_filename}')
+    # # # remove _extended from the filenames
+    # # new_filename = os.path.join(test_directory, test_file.replace('_extended', ''))
+    # # os.rename(os.path.join(test_directory, test_file), new_filename)
+    # # print(f'Renamed {test_file} to {new_filename}')
 
-    # delete the first 20 rows for each file and keep only the last 3 rows
+    # # delete the first 20 rows for each file and keep only the last 3 rows
     test_file_path = os.path.join(test_directory, test_file)
     mfcc_data_test = pd.read_csv(test_file_path, header=None).values
     mfcc_data_test = mfcc_data_test[-3:, :]

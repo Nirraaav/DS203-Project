@@ -43,9 +43,11 @@ file_names = []
 generated_features = []
 
 # Loop through all CSV files in the data-v2 directory and sort them
-data_directory = 'data-v2-copy'
-data2_directory = 'data-v2'
-files = [file for file in os.listdir(data_directory) if file.endswith("-MFCC.csv")]
+# data_directory = 'data-v2-copy'
+# data2_directory = 'data-v2'
+data_directory = 'test-mfcc-copy'
+data2_directory = 'test-mfcc'
+files = [file for file in os.listdir(data_directory) if file.endswith(".csv")]
 files.sort()  # Sort the files alphabetically
 
 for file_name in files:
@@ -53,6 +55,8 @@ for file_name in files:
     mfcc_data = pd.read_csv(file_path, header=None).values
     file2_path = os.path.join(data2_directory, file_name)   
     mfcc_data2 = pd.read_csv(file2_path, header=None).values
+
+    # print(file_name, os.path.join(data_directory, file_name), os.path.join(data2_directory, file_name))
 
     # Compute aggregated MFCC features
     aggregated_features = aggregate_mfcc_selective(mfcc_data)
@@ -68,6 +72,25 @@ for file_name in files:
     delta_std = np.std(delta_mfcc, axis=1)
     delta_max = np.max(delta_mfcc, axis=1)
     delta_min = np.min(delta_mfcc, axis=1)
+    delta_skew = skew(delta_mfcc, axis=1)
+    delta_kurt = kurtosis(delta_mfcc, axis=1)
+
+    delta_mfcc2 = np.diff(mfcc_data2, axis=1)
+    delta_delta_mfcc2 = np.diff(mfcc_data2, axis=1)
+
+    delta_mean2 = np.mean(delta_mfcc2, axis=1)
+    delta_std2 = np.std(delta_mfcc2, axis=1)
+    delta_max2 = np.max(delta_mfcc2, axis=1)
+    delta_min2 = np.min(delta_mfcc2, axis=1)
+    delta_skew2 = skew(delta_mfcc2, axis=1)
+    delta_kurt2 = kurtosis(delta_mfcc2, axis=1)
+
+    # energy_entropy = -np.sum(mfcc_data ** 2 * np.log(mfcc_data ** 2 + 1e-10), axis=1)
+    # energy_entropy_delta = -np.sum(delta_mfcc ** 2 * np.log(delta_mfcc ** 2 + 1e-10), axis=1)
+    # energy_entropy_delta2 = -np.sum(delta_mfcc2 ** 2 * np.log(delta_mfcc2 ** 2 + 1e-10), axis=1)
+
+    # print the length of each feature
+    # print(len(aggregated_features), len(aggregated_features2), len(skewness), len(kurt), len(range_max_min), len(delta_mean), len(delta_std), len(delta_max), len(delta_min), len(delta_mean2), len(delta_std2), len(delta_max2), len(delta_min2))
         
     # Compile all features into a single vector
     features = np.concatenate([
@@ -79,6 +102,13 @@ for file_name in files:
         delta_std.flatten(),
         delta_max.flatten(),
         delta_min.flatten(),
+        delta_mean2.flatten(),
+        delta_std2.flatten(),
+        delta_max2.flatten(),
+        delta_min2.flatten(),
+        # energy_entropy.flatten(),
+        # energy_entropy_delta.flatten(),
+        # energy_entropy_delta2.flatten(),
     ])
 
     print(f'Processed {file_name}')
@@ -123,7 +153,7 @@ mfcc_scaled = scaler.fit_transform(generated_features)
 # # plt.show()
 
 # Based on the elbow diagram, select the optimal number of components
-optimal_components = 7  # Adjust this based on the elbow plot
+optimal_components = 5  # Adjust this based on the elbow plot
 
 # Apply PCA on the entire feature set with the optimal number of components
 pca = PCA(n_components=optimal_components)
@@ -135,12 +165,12 @@ clusters = 6
 clustering_algorithms = {
     'KMeans': KMeans(n_clusters=clusters),
     'AgglomerativeClustering': AgglomerativeClustering(n_clusters=clusters),
-    'DBSCAN': DBSCAN(eps=0.5, min_samples=5),
+    # 'DBSCAN': DBSCAN(eps=0.5, min_samples=5),
     'Birch': Birch(n_clusters=clusters),
-    'MeanShift': MeanShift(),
+    # 'MeanShift': MeanShift(),
     'SpectralClustering': SpectralClustering(n_clusters=clusters),
-    'OPTICS': OPTICS(min_samples=5),
-    'AffinityPropagation': AffinityPropagation(),
+    # 'OPTICS': OPTICS(min_samples=5),
+    # 'AffinityPropagation': AffinityPropagation(),
     'GaussianMixture': GaussianMixture(n_components=clusters)
 }
 

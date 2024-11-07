@@ -73,7 +73,7 @@ def evaluate_clustering(labels, scaled_data):
 # Define DataFrame columns
 columns = []
 for stat in [ 'mean', 'std', 'delta', 'delta2', 'skew', 'kurtosis', 'range', 'energy_entropy']:
-    columns.extend([f'{stat}_mfcc_{i}' for i in range(INDEX, 20)])  9
+    columns.extend([f'{stat}_mfcc_{i}' for i in range(INDEX, 20)])  
 
 # Initialize an empty DataFrame to store all features
 all_features_df = pd.DataFrame(columns=['song_number'] + columns)
