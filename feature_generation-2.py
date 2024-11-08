@@ -45,10 +45,10 @@ file_names = []
 generated_features = []
 
 # Loop through all CSV files in the data-v2 directory and sort them
-data_directory = 'data-v2-copy'
-data2_directory = 'data-v2'
-# data_directory = 'test-mfcc-copy'
-# data2_directory = 'test-mfcc'
+# data_directory = 'data-v2-copy'
+# data2_directory = 'data-v2'
+data_directory = 'test-hv-copy'
+data2_directory = 'test-hv'
 files = [file for file in os.listdir(data_directory) if file.endswith(".csv")]
 files.sort()  # Sort the files alphabetically
 
@@ -61,7 +61,7 @@ for file_name in tqdm(files):
     # print(file_name, os.path.join(data_directory, file_name), os.path.join(data2_directory, file_name))
 
     # Compute aggregated MFCC features
-    aggregated_features = aggregate_mfcc_selective(mfcc_data)
+    aggregated_features = aggregate_mfcc_selective2(mfcc_data)
     aggregated_features2 = aggregate_mfcc_selective2(mfcc_data2)
     skewness = skew(mfcc_data, axis=1)
     kurt = kurtosis(mfcc_data, axis=1)
@@ -74,8 +74,8 @@ for file_name in tqdm(files):
     delta_std = np.std(delta_mfcc, axis=1)
     delta_max = np.max(delta_mfcc, axis=1)
     delta_min = np.min(delta_mfcc, axis=1)
-    delta_skew = skew(delta_mfcc, axis=1)
-    delta_kurt = kurtosis(delta_mfcc, axis=1)
+    # delta_skew = skew(delta_mfcc, axis=1)
+    # delta_kurt = kurtosis(delta_mfcc, axis=1)
 
     delta_mfcc2 = np.diff(mfcc_data2, axis=1)
     delta_delta_mfcc2 = np.diff(mfcc_data2, axis=1)
@@ -84,8 +84,8 @@ for file_name in tqdm(files):
     delta_std2 = np.std(delta_mfcc2, axis=1)
     delta_max2 = np.max(delta_mfcc2, axis=1)
     delta_min2 = np.min(delta_mfcc2, axis=1)
-    delta_skew2 = skew(delta_mfcc2, axis=1)
-    delta_kurt2 = kurtosis(delta_mfcc2, axis=1)
+    # delta_skew2 = skew(delta_mfcc2, axis=1)
+    # delta_kurt2 = kurtosis(delta_mfcc2, axis=1)
 
     window_size = 10  # Example window size
     mfcc_rolling_mean = pd.DataFrame(mfcc_data).T.rolling(window=window_size).mean().T
