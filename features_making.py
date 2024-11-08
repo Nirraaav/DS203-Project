@@ -141,7 +141,16 @@ def evaluate_clustering(labels, scaled_data):
 
 # Define DataFrame columns
 columns = []
-for stat in ['mean', 'std', 'max', 'min', 'skew', 'kurtosis', 'range', 'total_energy', 'energy_entropy', 'delta_mean', 'delta_std', 'delta_max', 'delta_min', 'delta_skew', 'delta_kurtosis', 'delta_range', 'delta_total_energy', 'delta_energy_entropy', 'delta2_mean', 'delta_std', 'delta2_max', 'delta2_min', 'delta2_skew', 'delta2_kurtosis', 'delta2_range', 'delta2_total_energy', 'delta2_energy_entropy', 'autocorrelation_mean', 'autocorrelation_std', 'autocorrelation_max', 'autocorrelation_min', 'autocorrelation_skew', 'autocorrelation_kurtosis', 'autocorrelation_range', 'autocorrelation_total_energy', 'autocorrelation_energy_entropy', 'cross_correlation_mean', 'cross_correlation_std', 'cross_correlation_max', 'cross_correlation_min', 'cross_correlation_skew', 'cross_correlation_kurtosis', 'cross_correlation_range', 'cross_correlation_total_energy', 'cross_correlation_energy_entropy', 'convolution_mean', 'convolution_std', 'convolution_max', 'convolution_min', 'convolution_skew', 'convolution_kurtosis', 'convolution_range', 'convolution_total_energy', 'convolution_energy_entropy', 'cross_convolution_mean', 'cross_convolution_std', 'cross_convolution_max', 'cross_convolution_min', 'cross_convolution_skew', 'cross_convolution_kurtosis', 'cross_convolution_range', 'cross_convolution_total_energy', 'cross_convolution_energy_entropy']:
+for stat in ['mean', 'std', 'max', 'min', 'skew', 'kurtosis', 'range', 'total_energy', 'energy_entropy', 'delta_mean', 'delta_std', 'delta_max', 
+             'delta_min', 'delta_skew', 'delta_kurtosis', 'delta_range', 'delta_total_energy', 'delta_energy_entropy', 'delta2_mean', 'delta_std', 
+             'delta2_max', 'delta2_min', 'delta2_skew', 'delta2_kurtosis', 'delta2_range', 'delta2_total_energy', 'delta2_energy_entropy', 
+             'autocorrelation_mean', 'autocorrelation_std', 'autocorrelation_max', 'autocorrelation_min', 'autocorrelation_skew', 'autocorrelation_kurtosis',
+               'autocorrelation_range', 'autocorrelation_total_energy', 'autocorrelation_energy_entropy', 'cross_correlation_mean', 'cross_correlation_std', 
+               'cross_correlation_max', 'cross_correlation_min', 'cross_correlation_skew', 'cross_correlation_kurtosis', 'cross_correlation_range', 
+               'cross_correlation_total_energy', 'cross_correlation_energy_entropy', 'convolution_mean', 'convolution_std', 'convolution_max', 
+               'convolution_min', 'convolution_skew', 'convolution_kurtosis', 'convolution_range', 'convolution_total_energy', 'convolution_energy_entropy', 
+               'cross_convolution_mean', 'cross_convolution_std', 'cross_convolution_max', 'cross_convolution_min', 'cross_convolution_skew', 
+               'cross_convolution_kurtosis', 'cross_convolution_range', 'cross_convolution_total_energy', 'cross_convolution_energy_entropy']:
     columns.extend([f'{stat}_mfcc_{i}' for i in range(INDEX, 20)])  
 
 # Initialize an empty DataFrame to store all features

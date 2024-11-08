@@ -5,6 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN, Birch, MeanShift, SpectralClustering, OPTICS, AffinityPropagation
 from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score
 from sklearn.mixture import GaussianMixture
+from sklearn.feature_selection import VarianceThreshold
 from sklearn.decomposition import PCA
 import librosa
 import matplotlib.pyplot as plt
@@ -86,6 +87,12 @@ for file_name in tqdm(files):
     delta_skew2 = skew(delta_mfcc2, axis=1)
     delta_kurt2 = kurtosis(delta_mfcc2, axis=1)
 
+    window_size = 10  # Example window size
+    mfcc_rolling_mean = pd.DataFrame(mfcc_data).T.rolling(window=window_size).mean().T
+    mfcc_rolling_std = pd.DataFrame(mfcc_data).T.rolling(window=window_size).std().T
+
+    mfcc_correlation = np.corrcoef(mfcc_data)
+
     # energy_entropy = -np.sum(mfcc_data ** 2 * np.log(mfcc_data ** 2 + 1e-10), axis=1)
     # energy_entropy_delta = -np.sum(delta_mfcc ** 2 * np.log(delta_mfcc ** 2 + 1e-10), axis=1)
     # energy_entropy_delta2 = -np.sum(delta_mfcc2 ** 2 * np.log(delta_mfcc2 ** 2 + 1e-10), axis=1)
@@ -110,6 +117,9 @@ for file_name in tqdm(files):
         # energy_entropy.flatten(),
         # energy_entropy_delta.flatten(),
         # energy_entropy_delta2.flatten(),
+        # mfcc_rolling_mean.values.flatten(),
+        # mfcc_rolling_std.values.flatten(),
+        # mfcc_correlation.flatten(),
     ])
 
     # print(f'Processed {file_name}')
@@ -118,7 +128,9 @@ for file_name in tqdm(files):
     file_names.append(file_name)          # Store the file name
 
 # Stack the generated features into a numpy array
-generated_features = np.vstack(generated_features)
+min_length = min(features.shape[0] for features in generated_features)
+truncated_features = [features[:min_length] for features in generated_features]
+generated_features = np.vstack(truncated_features)
 print(f'\nGenerated {generated_features.shape[0]} feature vectors with {generated_features.shape[1]} features each')
 total_features = generated_features.shape[1]
 feature_columns = [f'feature_{i}' for i in range(total_features)]
@@ -133,6 +145,11 @@ features_df.to_csv(f'features_generated.csv', index=False)
 # Standardize the features before PCA
 scaler = StandardScaler()
 mfcc_scaled = scaler.fit_transform(generated_features)
+
+print(f"{np.isnan(mfcc_scaled).sum()} zero values")  # This will tell you how many NaN values are in your dataset
+
+selector = VarianceThreshold(threshold=0.05)  # Adjust threshold based on data
+mfcc_scaled = selector.fit_transform(mfcc_scaled)
 
 # # Perform PCA and capture the explained variance for a range of components
 # explained_variances = []
@@ -156,8 +173,11 @@ mfcc_scaled = scaler.fit_transform(generated_features)
 # Based on the elbow diagram, select the optimal number of components
 optimal_components = 5  # Adjust this based on the elbow plot
 
-# Apply PCA on the entire feature set with the optimal number of components
+# # Apply PCA on the entire feature set with the optimal number of components
 pca = PCA(n_components=optimal_components)
+pca_features = pca.fit_transform(mfcc_scaled)
+
+pca = PCA(0.75)  # 90% of explained variance
 pca_features = pca.fit_transform(mfcc_scaled)
 
 clusters = 6

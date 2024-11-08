@@ -11,11 +11,11 @@ import os
 
 # Load or generate features if needed
 INDEX = 13
-features_file = f'features_generated_{INDEX}.csv'
+features_file = f'extracted_features.csv'
 if os.path.exists(features_file):
     features_df = pd.read_csv(features_file)
     generated_features = features_df.iloc[:, 1:].values
-    file_names = features_df['File'].tolist()
+    file_names = features_df['song_number'].tolist()
 else:
     print("Feature file not found. Please generate features first.")
     exit()
@@ -29,8 +29,8 @@ pca = PCA(n_components=10)
 pca_data = pca.fit_transform(mfcc_scaled)
 
 # Apply t-SNE for density-based clustering algorithms
-tsne = TSNE(n_components=3, perplexity=30, random_state=42)
-tsne_data = tsne.fit_transform(mfcc_scaled)
+# tsne = TSNE(n_components=3, perplexity=30, random_state=42)
+# tsne_data = tsne.fit_transform(mfcc_scaled)
 
 # Clustering with KMeans
 k = 6
