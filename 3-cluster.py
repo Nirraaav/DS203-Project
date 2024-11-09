@@ -18,8 +18,8 @@ def append_means(mfcc_data):
     return mfcc_data_extended
 
 # Loop through all CSV files in the test directory (assuming you have a test directory)
-test_directory = 'test-mfcc-v2'
-save_directory = 'test-mfcc-v2-copy'
+test_directory = 'jgm-mfcc'
+save_directory = 'jgm-mfcc-copy'
 test_files = [file for file in os.listdir(test_directory) if file.endswith(".csv")]
 test_files.sort()  # Sort the files alphabetically
     

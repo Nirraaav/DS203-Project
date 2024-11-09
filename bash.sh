@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory where files are located
-dir="mj-mfcc"
+dir="jgm-mfcc"
 
 # Counter for renaming files
 counter=1
@@ -12,7 +12,7 @@ for file in "$dir"/*; do
     ext="${file##*.}"
 
     # Rename the file
-    mv "$file" "$dir/Michael-Jackson-$counter.$ext"
+    mv "$file" "$dir/Jana-Gana-Mana-$counter.$ext"
 
     # Increment the counter
     ((counter++))
