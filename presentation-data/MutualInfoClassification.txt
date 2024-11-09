@@ -1,0 +1,850 @@
+
+Metrics for Logistic Regression:
+
+Accuracy_Train:
+0.9954954954954955
+
+Accuracy_Test:
+0.8456375838926175
+
+Precision_Train:
+0.9954954954954955
+
+Precision_Test:
+0.8482810216089549
+
+Recall_Train:
+0.9954954954954955
+
+Recall_Test:
+0.8456375838926175
+
+F1 Score_Train:
+0.9954954954954955
+
+F1 Score_Test:
+0.8445931125233557
+
+Confusion Matrix:
+[[16  4  0  0  3  0]
+ [ 1 22  0  0  1  1]
+ [ 0  0 17  0  0  0]
+ [ 0  0  1 35  0  0]
+ [ 3  3  0  0 16  1]
+ [ 1  0  2  0  2 20]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.76      0.70      0.73        23
+           1       0.76      0.88      0.81        25
+           2       0.85      1.00      0.92        17
+           3       1.00      0.97      0.99        36
+           4       0.73      0.70      0.71        23
+           5       0.91      0.80      0.85        25
+
+    accuracy                           0.85       149
+   macro avg       0.83      0.84      0.83       149
+weighted avg       0.85      0.85      0.84       149
+
+
+
+Metrics for K-Nearest Neighbors:
+
+Accuracy_Train:
+0.8783783783783784
+
+Accuracy_Test:
+0.8120805369127517
+
+Precision_Train:
+0.8801610828784743
+
+Precision_Test:
+0.8148248784066515
+
+Recall_Train:
+0.8783783783783784
+
+Recall_Test:
+0.8120805369127517
+
+F1 Score_Train:
+0.8783206663353983
+
+F1 Score_Test:
+0.8112999698469019
+
+Confusion Matrix:
+[[13  4  0  0  6  0]
+ [ 2 19  0  0  1  3]
+ [ 0  0 17  0  0  0]
+ [ 2  0  1 33  0  0]
+ [ 2  3  0  0 17  1]
+ [ 0  0  1  0  2 22]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.68      0.57      0.62        23
+           1       0.73      0.76      0.75        25
+           2       0.89      1.00      0.94        17
+           3       1.00      0.92      0.96        36
+           4       0.65      0.74      0.69        23
+           5       0.85      0.88      0.86        25
+
+    accuracy                           0.81       149
+   macro avg       0.80      0.81      0.80       149
+weighted avg       0.81      0.81      0.81       149
+
+
+
+Metrics for Random Forest:
+
+Accuracy_Train:
+0.9954954954954955
+
+Accuracy_Test:
+0.8993288590604027
+
+Precision_Train:
+0.9956140350877194
+
+Precision_Test:
+0.9027191682940151
+
+Recall_Train:
+0.9954954954954955
+
+Recall_Test:
+0.8993288590604027
+
+F1 Score_Train:
+0.9954946727549467
+
+F1 Score_Test:
+0.9002648039081405
+
+Confusion Matrix:
+[[19  1  0  0  3  0]
+ [ 2 20  0  0  2  1]
+ [ 0  0 17  0  0  0]
+ [ 0  0  0 36  0  0]
+ [ 2  2  0  0 19  0]
+ [ 0  0  0  0  2 23]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.83      0.83      0.83        23
+           1       0.87      0.80      0.83        25
+           2       1.00      1.00      1.00        17
+           3       1.00      1.00      1.00        36
+           4       0.73      0.83      0.78        23
+           5       0.96      0.92      0.94        25
+
+    accuracy                           0.90       149
+   macro avg       0.90      0.90      0.90       149
+weighted avg       0.90      0.90      0.90       149
+
+
+
+Metrics for Gradient Boosting:
+
+Accuracy_Train:
+0.9954954954954955
+
+Accuracy_Test:
+0.8523489932885906
+
+Precision_Train:
+0.9956140350877194
+
+Precision_Test:
+0.8584268080912376
+
+Recall_Train:
+0.9954954954954955
+
+Recall_Test:
+0.8523489932885906
+
+F1 Score_Train:
+0.9954946727549467
+
+F1 Score_Test:
+0.8542632893987715
+
+Confusion Matrix:
+[[17  2  0  0  4  0]
+ [ 1 20  0  1  2  1]
+ [ 0  0 17  0  0  0]
+ [ 0  1  0 35  0  0]
+ [ 3  3  0  0 17  0]
+ [ 1  0  0  0  3 21]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.77      0.74      0.76        23
+           1       0.77      0.80      0.78        25
+           2       1.00      1.00      1.00        17
+           3       0.97      0.97      0.97        36
+           4       0.65      0.74      0.69        23
+           5       0.95      0.84      0.89        25
+
+    accuracy                           0.85       149
+   macro avg       0.85      0.85      0.85       149
+weighted avg       0.86      0.85      0.85       149
+
+
+
+Metrics for AdaBoost:
+
+Accuracy_Train:
+0.668918918918919
+
+Accuracy_Test:
+0.6040268456375839
+
+Precision_Train:
+0.6840263259038688
+
+Precision_Test:
+0.6349603416717511
+
+Recall_Train:
+0.668918918918919
+
+Recall_Test:
+0.6040268456375839
+
+F1 Score_Train:
+0.6686749732490156
+
+F1 Score_Test:
+0.6132422761681607
+
+Confusion Matrix:
+[[ 6  7  0  0 10  0]
+ [ 3 11  0  0  9  2]
+ [ 0  0 16  0  1  0]
+ [ 0  3  0 32  0  1]
+ [ 5  2  0  0 11  5]
+ [ 1  9  0  0  1 14]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.40      0.26      0.32        23
+           1       0.34      0.44      0.39        25
+           2       1.00      0.94      0.97        17
+           3       1.00      0.89      0.94        36
+           4       0.34      0.48      0.40        23
+           5       0.64      0.56      0.60        25
+
+    accuracy                           0.60       149
+   macro avg       0.62      0.59      0.60       149
+weighted avg       0.63      0.60      0.61       149
+
+
+
+Metrics for Naive Bayes:
+
+Accuracy_Train:
+0.8716216216216216
+
+Accuracy_Test:
+0.7651006711409396
+
+Precision_Train:
+0.8743369816662131
+
+Precision_Test:
+0.774142092093534
+
+Recall_Train:
+0.8716216216216216
+
+Recall_Test:
+0.7651006711409396
+
+F1 Score_Train:
+0.8715942374780921
+
+F1 Score_Test:
+0.760957279954205
+
+Confusion Matrix:
+[[12  6  0  1  4  0]
+ [ 2 19  0  2  2  0]
+ [ 0  1 16  0  0  0]
+ [ 0  0  1 34  0  1]
+ [ 4  2  0  0 17  0]
+ [ 0  1  0  6  2 16]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.67      0.52      0.59        23
+           1       0.66      0.76      0.70        25
+           2       0.94      0.94      0.94        17
+           3       0.79      0.94      0.86        36
+           4       0.68      0.74      0.71        23
+           5       0.94      0.64      0.76        25
+
+    accuracy                           0.77       149
+   macro avg       0.78      0.76      0.76       149
+weighted avg       0.77      0.77      0.76       149
+
+
+
+Metrics for Decision Tree:
+
+Accuracy_Train:
+0.9932432432432432
+
+Accuracy_Test:
+0.7181208053691275
+
+Precision_Train:
+0.9933918128654972
+
+Precision_Test:
+0.7319726064518937
+
+Recall_Train:
+0.9932432432432432
+
+Recall_Test:
+0.7181208053691275
+
+F1 Score_Train:
+0.993242317674212
+
+F1 Score_Test:
+0.7208028524190271
+
+Confusion Matrix:
+[[14  2  0  0  5  2]
+ [ 3 18  0  0  2  2]
+ [ 0  0 17  0  0  0]
+ [ 0  2  0 34  0  0]
+ [ 9  2  0  0 11  1]
+ [ 3  2  1  0  6 13]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.48      0.61      0.54        23
+           1       0.69      0.72      0.71        25
+           2       0.94      1.00      0.97        17
+           3       1.00      0.94      0.97        36
+           4       0.46      0.48      0.47        23
+           5       0.72      0.52      0.60        25
+
+    accuracy                           0.72       149
+   macro avg       0.72      0.71      0.71       149
+weighted avg       0.73      0.72      0.72       149
+
+
+
+Metrics for XGBoost:
+
+Accuracy_Train:
+0.9954954954954955
+
+Accuracy_Test:
+0.9194630872483222
+
+Precision_Train:
+0.9956140350877194
+
+Precision_Test:
+0.923268472765117
+
+Recall_Train:
+0.9954954954954955
+
+Recall_Test:
+0.9194630872483222
+
+F1 Score_Train:
+0.9954946727549466
+
+F1 Score_Test:
+0.9195406557286071
+
+Confusion Matrix:
+[[21  1  0  0  1  0]
+ [ 1 20  1  0  2  1]
+ [ 0  0 17  0  0  0]
+ [ 0  0  0 36  0  0]
+ [ 3  0  0  0 20  0]
+ [ 1  0  0  0  1 23]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.81      0.91      0.86        23
+           1       0.95      0.80      0.87        25
+           2       0.94      1.00      0.97        17
+           3       1.00      1.00      1.00        36
+           4       0.83      0.87      0.85        23
+           5       0.96      0.92      0.94        25
+
+    accuracy                           0.92       149
+   macro avg       0.92      0.92      0.91       149
+weighted avg       0.92      0.92      0.92       149
+
+
+
+Metrics for SVC_linear:
+
+Accuracy_Train:
+0.9954954954954955
+
+Accuracy_Test:
+0.87248322147651
+
+Precision_Train:
+0.9954954954954955
+
+Precision_Test:
+0.8707679149219241
+
+Recall_Train:
+0.9954954954954955
+
+Recall_Test:
+0.87248322147651
+
+F1 Score_Train:
+0.9954954954954955
+
+F1 Score_Test:
+0.8699622248967124
+
+Confusion Matrix:
+[[15  4  0  0  4  0]
+ [ 1 22  0  0  0  2]
+ [ 0  0 17  0  0  0]
+ [ 0  0  0 36  0  0]
+ [ 3  2  0  0 17  1]
+ [ 0  0  1  0  1 23]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.79      0.65      0.71        23
+           1       0.79      0.88      0.83        25
+           2       0.94      1.00      0.97        17
+           3       1.00      1.00      1.00        36
+           4       0.77      0.74      0.76        23
+           5       0.88      0.92      0.90        25
+
+    accuracy                           0.87       149
+   macro avg       0.86      0.87      0.86       149
+weighted avg       0.87      0.87      0.87       149
+
+
+
+Metrics for SVC_rbf:
+
+Accuracy_Train:
+0.9752252252252253
+
+Accuracy_Test:
+0.87248322147651
+
+Precision_Train:
+0.9755515717592141
+
+Precision_Test:
+0.8753195350510787
+
+Recall_Train:
+0.9752252252252253
+
+Recall_Test:
+0.87248322147651
+
+F1 Score_Train:
+0.975267783026569
+
+F1 Score_Test:
+0.8720108248271372
+
+Confusion Matrix:
+[[20  1  0  0  2  0]
+ [ 2 19  1  0  1  2]
+ [ 0  0 17  0  0  0]
+ [ 1  0  0 35  0  0]
+ [ 3  2  1  0 17  0]
+ [ 0  0  1  0  2 22]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.77      0.87      0.82        23
+           1       0.86      0.76      0.81        25
+           2       0.85      1.00      0.92        17
+           3       1.00      0.97      0.99        36
+           4       0.77      0.74      0.76        23
+           5       0.92      0.88      0.90        25
+
+    accuracy                           0.87       149
+   macro avg       0.86      0.87      0.86       149
+weighted avg       0.88      0.87      0.87       149
+
+
+
+Metrics for RandomForest_1:
+
+Accuracy_Train:
+0.9954954954954955
+
+Accuracy_Test:
+0.8859060402684564
+
+Precision_Train:
+0.9954954954954955
+
+Precision_Test:
+0.8854816883340372
+
+Recall_Train:
+0.9954954954954955
+
+Recall_Test:
+0.8859060402684564
+
+F1 Score_Train:
+0.9954954954954955
+
+F1 Score_Test:
+0.8854643499553185
+
+Confusion Matrix:
+[[18  3  0  0  2  0]
+ [ 3 19  0  0  1  2]
+ [ 0  0 17  0  0  0]
+ [ 0  0  0 36  0  0]
+ [ 3  2  0  0 18  0]
+ [ 0  0  0  0  1 24]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.75      0.78      0.77        23
+           1       0.79      0.76      0.78        25
+           2       1.00      1.00      1.00        17
+           3       1.00      1.00      1.00        36
+           4       0.82      0.78      0.80        23
+           5       0.92      0.96      0.94        25
+
+    accuracy                           0.89       149
+   macro avg       0.88      0.88      0.88       149
+weighted avg       0.89      0.89      0.89       149
+
+
+
+Metrics for RandomForest_3:
+
+Accuracy_Train:
+0.9932432432432432
+
+Accuracy_Test:
+0.8859060402684564
+
+Precision_Train:
+0.9933033033033033
+
+Precision_Test:
+0.8885439159614823
+
+Recall_Train:
+0.9932432432432432
+
+Recall_Test:
+0.8859060402684564
+
+F1 Score_Train:
+0.9932582562016886
+
+F1 Score_Test:
+0.886744966442953
+
+Confusion Matrix:
+[[19  2  0  0  2  0]
+ [ 2 20  0  0  2  1]
+ [ 0  0 17  0  0  0]
+ [ 0  0  0 36  0  0]
+ [ 3  2  0  0 18  0]
+ [ 1  1  0  0  1 22]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.76      0.83      0.79        23
+           1       0.80      0.80      0.80        25
+           2       1.00      1.00      1.00        17
+           3       1.00      1.00      1.00        36
+           4       0.78      0.78      0.78        23
+           5       0.96      0.88      0.92        25
+
+    accuracy                           0.89       149
+   macro avg       0.88      0.88      0.88       149
+weighted avg       0.89      0.89      0.89       149
+
+
+
+Metrics for RandomForest_5:
+
+Accuracy_Train:
+0.9774774774774775
+
+Accuracy_Test:
+0.912751677852349
+
+Precision_Train:
+0.9780453530453531
+
+Precision_Test:
+0.9133852724456751
+
+Recall_Train:
+0.9774774774774775
+
+Recall_Test:
+0.912751677852349
+
+F1 Score_Train:
+0.9775911455796099
+
+F1 Score_Test:
+0.9128403972106535
+
+Confusion Matrix:
+[[19  2  0  0  2  0]
+ [ 1 21  0  0  2  1]
+ [ 0  0 17  0  0  0]
+ [ 0  1  0 35  0  0]
+ [ 2  2  0  0 19  0]
+ [ 0  0  0  0  0 25]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.83      0.84        23
+           1       0.81      0.84      0.82        25
+           2       1.00      1.00      1.00        17
+           3       1.00      0.97      0.99        36
+           4       0.83      0.83      0.83        23
+           5       0.96      1.00      0.98        25
+
+    accuracy                           0.91       149
+   macro avg       0.91      0.91      0.91       149
+weighted avg       0.91      0.91      0.91       149
+
+
+
+Metrics for NeuralNetwork_1:
+
+Accuracy_Train:
+0.9572072072072072
+
+Accuracy_Test:
+0.825503355704698
+
+Precision_Train:
+0.9630240744086768
+
+Precision_Test:
+0.8310189139719341
+
+Recall_Train:
+0.9572072072072072
+
+Recall_Test:
+0.825503355704698
+
+F1 Score_Train:
+0.9582172764851905
+
+F1 Score_Test:
+0.8252154143950516
+
+Confusion Matrix:
+[[16  1  0  0  6  0]
+ [ 2 19  0  2  1  1]
+ [ 0  0 17  0  0  0]
+ [ 1  0  1 34  0  0]
+ [ 3  2  0  0 17  1]
+ [ 0  0  4  0  1 20]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.73      0.70      0.71        23
+           1       0.86      0.76      0.81        25
+           2       0.77      1.00      0.87        17
+           3       0.94      0.94      0.94        36
+           4       0.68      0.74      0.71        23
+           5       0.91      0.80      0.85        25
+
+    accuracy                           0.83       149
+   macro avg       0.82      0.82      0.82       149
+weighted avg       0.83      0.83      0.83       149
+
+
+
+Metrics for NeuralNetwork_2:
+
+Accuracy_Train:
+0.9391891891891891
+
+Accuracy_Test:
+0.7315436241610739
+
+Precision_Train:
+0.9490688047289484
+
+Precision_Test:
+0.7196702123837844
+
+Recall_Train:
+0.9391891891891891
+
+Recall_Test:
+0.7315436241610739
+
+F1 Score_Train:
+0.9400855566813014
+
+F1 Score_Test:
+0.7221510691815005
+
+Confusion Matrix:
+[[ 8  3  2  1  8  1]
+ [ 2 18  1  2  1  1]
+ [ 0  0 16  1  0  0]
+ [ 0  1  1 33  1  0]
+ [ 7  1  0  0 12  3]
+ [ 0  0  2  0  1 22]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.47      0.35      0.40        23
+           1       0.78      0.72      0.75        25
+           2       0.73      0.94      0.82        17
+           3       0.89      0.92      0.90        36
+           4       0.52      0.52      0.52        23
+           5       0.81      0.88      0.85        25
+
+    accuracy                           0.73       149
+   macro avg       0.70      0.72      0.71       149
+weighted avg       0.72      0.73      0.72       149
+
+
+
+Metrics for NeuralNetwork_3:
+
+Accuracy_Train:
+0.9819819819819819
+
+Accuracy_Test:
+0.738255033557047
+
+Precision_Train:
+0.982469106703065
+
+Precision_Test:
+0.7393654782165909
+
+Recall_Train:
+0.9819819819819819
+
+Recall_Test:
+0.738255033557047
+
+F1 Score_Train:
+0.9820073504047138
+
+F1 Score_Test:
+0.7289850130049205
+
+Confusion Matrix:
+[[ 9  1  3  2  7  1]
+ [ 3 16  0  5  0  1]
+ [ 0  0 15  2  0  0]
+ [ 0  1  0 34  0  1]
+ [ 3  1  0  1 18  0]
+ [ 1  0  3  0  3 18]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.56      0.39      0.46        23
+           1       0.84      0.64      0.73        25
+           2       0.71      0.88      0.79        17
+           3       0.77      0.94      0.85        36
+           4       0.64      0.78      0.71        23
+           5       0.86      0.72      0.78        25
+
+    accuracy                           0.74       149
+   macro avg       0.73      0.73      0.72       149
+weighted avg       0.74      0.74      0.73       149
+
+
+
+Metrics for NeuralNetwork_4:
+
+Accuracy_Train:
+0.9932432432432432
+
+Accuracy_Test:
+0.8456375838926175
+
+Precision_Train:
+0.9933918128654972
+
+Precision_Test:
+0.8434950631612589
+
+Recall_Train:
+0.9932432432432432
+
+Recall_Test:
+0.8456375838926175
+
+F1 Score_Train:
+0.993242317674212
+
+F1 Score_Test:
+0.8439070477584584
+
+Confusion Matrix:
+[[15  3  0  1  4  0]
+ [ 3 19  0  0  1  2]
+ [ 0  0 17  0  0  0]
+ [ 0  0  0 35  0  1]
+ [ 3  2  0  0 18  0]
+ [ 0  0  2  0  1 22]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.71      0.65      0.68        23
+           1       0.79      0.76      0.78        25
+           2       0.89      1.00      0.94        17
+           3       0.97      0.97      0.97        36
+           4       0.75      0.78      0.77        23
+           5       0.88      0.88      0.88        25
+
+    accuracy                           0.85       149
+   macro avg       0.83      0.84      0.84       149
+weighted avg       0.84      0.85      0.84       149
+
+
