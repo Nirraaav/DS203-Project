@@ -45,10 +45,10 @@ file_names = []
 generated_features = []
 
 # Loop through all CSV files in the data-v2 directory and sort them
-# data_directory = 'data-v2-copy'
-# data2_directory = 'data-v2'
-data_directory = 'test-hv-copy'
-data2_directory = 'test-hv'
+data_directory = 'data-v2-copy'
+data2_directory = 'data-v2'
+# data_directory = 'test-hv-copy'
+# data2_directory = 'test-hv'
 files = [file for file in os.listdir(data_directory) if file.endswith(".csv")]
 files.sort()  # Sort the files alphabetically
 

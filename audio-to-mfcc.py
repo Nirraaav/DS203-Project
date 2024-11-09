@@ -24,10 +24,10 @@ def create_MFCC_coefficients(file_name):
         print(f"Error creating MFCC coefficients: {file_name}: {str(e)}")
 
 # Folder containing the audio files
-audio_folder = "jgm"
+audio_folder = "songs-for-presentation"
 
 # Output folder to save the MFCC CSV files
-output_folder = "jgm-mfcc"
+output_folder = "songs-for-presentation-mfcc"
 
 # Create output folder if it does not exist
 os.makedirs(output_folder, exist_ok=True)
