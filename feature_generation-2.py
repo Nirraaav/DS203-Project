@@ -45,10 +45,10 @@ file_names = []
 generated_features = []
 
 # Loop through all CSV files in the data-v2 directory and sort them
-# data_directory = 'data-v2-copy'
-# data2_directory = 'data-v2'
-data_directory = 'test-hv-copy'
-data2_directory = 'test-hv'
+data_directory = 'data-v2-copy'
+data2_directory = 'data-v2'
+# data_directory = 'test-mfcc-copy'
+# data2_directory = 'test-mfcc'
 files = [file for file in os.listdir(data_directory) if file.endswith(".csv")]
 files.sort()  # Sort the files alphabetically
 
@@ -61,7 +61,7 @@ for file_name in tqdm(files):
     # print(file_name, os.path.join(data_directory, file_name), os.path.join(data2_directory, file_name))
 
     # Compute aggregated MFCC features
-    aggregated_features = aggregate_mfcc_selective2(mfcc_data)
+    aggregated_features = aggregate_mfcc_selective(mfcc_data)
     aggregated_features2 = aggregate_mfcc_selective2(mfcc_data2)
     skewness = skew(mfcc_data, axis=1)
     kurt = kurtosis(mfcc_data, axis=1)
@@ -74,8 +74,8 @@ for file_name in tqdm(files):
     delta_std = np.std(delta_mfcc, axis=1)
     delta_max = np.max(delta_mfcc, axis=1)
     delta_min = np.min(delta_mfcc, axis=1)
-    # delta_skew = skew(delta_mfcc, axis=1)
-    # delta_kurt = kurtosis(delta_mfcc, axis=1)
+    delta_skew = skew(delta_mfcc, axis=1)
+    delta_kurt = kurtosis(delta_mfcc, axis=1)
 
     delta_mfcc2 = np.diff(mfcc_data2, axis=1)
     delta_delta_mfcc2 = np.diff(mfcc_data2, axis=1)
@@ -84,8 +84,8 @@ for file_name in tqdm(files):
     delta_std2 = np.std(delta_mfcc2, axis=1)
     delta_max2 = np.max(delta_mfcc2, axis=1)
     delta_min2 = np.min(delta_mfcc2, axis=1)
-    # delta_skew2 = skew(delta_mfcc2, axis=1)
-    # delta_kurt2 = kurtosis(delta_mfcc2, axis=1)
+    delta_skew2 = skew(delta_mfcc2, axis=1)
+    delta_kurt2 = kurtosis(delta_mfcc2, axis=1)
 
     window_size = 10  # Example window size
     mfcc_rolling_mean = pd.DataFrame(mfcc_data).T.rolling(window=window_size).mean().T
@@ -93,9 +93,9 @@ for file_name in tqdm(files):
 
     mfcc_correlation = np.corrcoef(mfcc_data)
 
-    # energy_entropy = -np.sum(mfcc_data ** 2 * np.log(mfcc_data ** 2 + 1e-10), axis=1)
-    # energy_entropy_delta = -np.sum(delta_mfcc ** 2 * np.log(delta_mfcc ** 2 + 1e-10), axis=1)
-    # energy_entropy_delta2 = -np.sum(delta_mfcc2 ** 2 * np.log(delta_mfcc2 ** 2 + 1e-10), axis=1)
+    energy_entropy = -np.sum(mfcc_data ** 2 * np.log(mfcc_data ** 2 + 1e-10), axis=1)
+    energy_entropy_delta = -np.sum(delta_mfcc ** 2 * np.log(delta_mfcc ** 2 + 1e-10), axis=1)
+    energy_entropy_delta2 = -np.sum(delta_mfcc2 ** 2 * np.log(delta_mfcc2 ** 2 + 1e-10), axis=1)
 
     # print the length of each feature
     # print(len(aggregated_features), len(aggregated_features2), len(skewness), len(kurt), len(range_max_min), len(delta_mean), len(delta_std), len(delta_max), len(delta_min), len(delta_mean2), len(delta_std2), len(delta_max2), len(delta_min2))
@@ -114,9 +114,9 @@ for file_name in tqdm(files):
         delta_std2.flatten(),
         delta_max2.flatten(),
         delta_min2.flatten(),
-        # energy_entropy.flatten(),
-        # energy_entropy_delta.flatten(),
-        # energy_entropy_delta2.flatten(),
+        energy_entropy.flatten(),
+        energy_entropy_delta.flatten(),
+        energy_entropy_delta2.flatten(),
         # mfcc_rolling_mean.values.flatten(),
         # mfcc_rolling_std.values.flatten(),
         # mfcc_correlation.flatten(),
