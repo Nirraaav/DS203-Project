@@ -1,0 +1,117 @@
+Index,Logistic Regression,K-Nearest Neighbors
+01-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+02-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+03-MFCC.csv,Michael Jackson,Michael Jackson
+04-MFCC.csv,Asha Bhosle,Asha Bhosle
+05-MFCC.csv,Kishore Kumar,Kishore Kumar
+06-MFCC.csv,Lavni,Asha Bhosle
+07-MFCC.csv,Lavni,Lavni
+08-MFCC.csv,Michael Jackson,Michael Jackson
+09-MFCC.csv,Kishore Kumar,Bhav Geet
+10-MFCC.csv,Lavni,Asha Bhosle
+11-MFCC.csv,Asha Bhosle,Asha Bhosle
+12-MFCC.csv,Asha Bhosle,Asha Bhosle
+13-MFCC.csv,Asha Bhosle,Asha Bhosle
+14-MFCC.csv,Lavni,Asha Bhosle
+15-MFCC.csv,Asha Bhosle,Asha Bhosle
+16-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+17-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+18-MFCC.csv,Kishore Kumar,Lavni
+19-MFCC.csv,Asha Bhosle,Asha Bhosle
+20-MFCC.csv,Michael Jackson,Michael Jackson
+21-MFCC.csv,Asha Bhosle,Asha Bhosle
+22-MFCC.csv,Lavni,Michael Jackson
+23-MFCC.csv,Asha Bhosle,Asha Bhosle
+24-MFCC.csv,Kishore Kumar,Kishore Kumar
+25-MFCC.csv,Bhav Geet,Asha Bhosle
+26-MFCC.csv,Bhav Geet,Bhav Geet
+27-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+28-MFCC.csv,Kishore Kumar,Bhav Geet
+29-MFCC.csv,Kishore Kumar,Kishore Kumar
+30-MFCC.csv,Bhav Geet,Asha Bhosle
+31-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+32-MFCC.csv,Asha Bhosle,Asha Bhosle
+33-MFCC.csv,Asha Bhosle,Asha Bhosle
+34-MFCC.csv,Kishore Kumar,Michael Jackson
+35-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+36-MFCC.csv,Asha Bhosle,Asha Bhosle
+37-MFCC.csv,Michael Jackson,Kishore Kumar
+38-MFCC.csv,Asha Bhosle,Asha Bhosle
+39-MFCC.csv,Bhav Geet,Asha Bhosle
+40-MFCC.csv,Asha Bhosle,Asha Bhosle
+41-MFCC.csv,Bhav Geet,Asha Bhosle
+42-MFCC.csv,Bhav Geet,Asha Bhosle
+43-MFCC.csv,Asha Bhosle,Asha Bhosle
+44-MFCC.csv,Michael Jackson,Michael Jackson
+45-MFCC.csv,Kishore Kumar,Kishore Kumar
+46-MFCC.csv,Kishore Kumar,Kishore Kumar
+47-MFCC.csv,Bhav Geet,Asha Bhosle
+48-MFCC.csv,Kishore Kumar,Kishore Kumar
+49-MFCC.csv,Lavni,Asha Bhosle
+50-MFCC.csv,Kishore Kumar,Kishore Kumar
+51-MFCC.csv,Kishore Kumar,Kishore Kumar
+52-MFCC.csv,Asha Bhosle,Asha Bhosle
+53-MFCC.csv,Michael Jackson,Michael Jackson
+54-MFCC.csv,Lavni,Asha Bhosle
+55-MFCC.csv,Kishore Kumar,Kishore Kumar
+56-MFCC.csv,Asha Bhosle,Asha Bhosle
+57-MFCC.csv,Lavni,Kishore Kumar
+58-MFCC.csv,Kishore Kumar,Lavni
+59-MFCC.csv,Jana Gana Mana,Kishore Kumar
+60-MFCC.csv,Bhav Geet,Asha Bhosle
+61-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+62-MFCC.csv,Asha Bhosle,Asha Bhosle
+63-MFCC.csv,Kishore Kumar,Kishore Kumar
+64-MFCC.csv,Bhav Geet,Lavni
+65-MFCC.csv,Kishore Kumar,Kishore Kumar
+66-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+67-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+68-MFCC.csv,Lavni,Asha Bhosle
+69-MFCC.csv,Bhav Geet,Asha Bhosle
+70-MFCC.csv,Bhav Geet,Asha Bhosle
+71-MFCC.csv,Lavni,Asha Bhosle
+72-MFCC.csv,Asha Bhosle,Asha Bhosle
+73-MFCC.csv,Bhav Geet,Asha Bhosle
+74-MFCC.csv,Michael Jackson,Michael Jackson
+75-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+76-MFCC.csv,Bhav Geet,Michael Jackson
+77-MFCC.csv,Asha Bhosle,Asha Bhosle
+78-MFCC.csv,Michael Jackson,Michael Jackson
+79-MFCC.csv,Asha Bhosle,Asha Bhosle
+80-MFCC.csv,Kishore Kumar,Kishore Kumar
+81-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+82-MFCC.csv,Asha Bhosle,Bhav Geet
+83-MFCC.csv,Kishore Kumar,Kishore Kumar
+84-MFCC.csv,Kishore Kumar,Kishore Kumar
+85-MFCC.csv,Asha Bhosle,Asha Bhosle
+86-MFCC.csv,Michael Jackson,Michael Jackson
+87-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+88-MFCC.csv,Kishore Kumar,Asha Bhosle
+89-MFCC.csv,Bhav Geet,Asha Bhosle
+90-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+91-MFCC.csv,Asha Bhosle,Asha Bhosle
+92-MFCC.csv,Kishore Kumar,Lavni
+93-MFCC.csv,Kishore Kumar,Kishore Kumar
+94-MFCC.csv,Lavni,Asha Bhosle
+95-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+96-MFCC.csv,Kishore Kumar,Kishore Kumar
+97-MFCC.csv,Kishore Kumar,Kishore Kumar
+98-MFCC.csv,Kishore Kumar,Michael Jackson
+99-MFCC.csv,Asha Bhosle,Asha Bhosle
+100-MFCC.csv,Kishore Kumar,Jana Gana Mana
+101-MFCC.csv,Lavni,Lavni
+102-MFCC.csv,Bhav Geet,Asha Bhosle
+103-MFCC.csv,Michael Jackson,Michael Jackson
+104-MFCC.csv,Lavni,Kishore Kumar
+105-MFCC.csv,Bhav Geet,Bhav Geet
+106-MFCC.csv,Asha Bhosle,Asha Bhosle
+107-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+108-MFCC.csv,Jana Gana Mana,Jana Gana Mana
+109-MFCC.csv,Bhav Geet,Asha Bhosle
+110-MFCC.csv,Asha Bhosle,Lavni
+111-MFCC.csv,Kishore Kumar,Kishore Kumar
+112-MFCC.csv,Bhav Geet,Asha Bhosle
+113-MFCC.csv,Kishore Kumar,Asha Bhosle
+114-MFCC.csv,Michael Jackson,Kishore Kumar
+115-MFCC.csv,Asha Bhosle,Asha Bhosle
+116-MFCC.csv,Jana Gana Mana,Jana Gana Mana
